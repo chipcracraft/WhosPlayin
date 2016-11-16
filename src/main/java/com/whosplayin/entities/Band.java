@@ -51,6 +51,8 @@ public class Band {
         return id;
     }
 
+    // @ManytoMany -- multiple events for each User & Event
+
     public void setId(int id) {
         this.id = id;
     }

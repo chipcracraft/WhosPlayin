@@ -33,6 +33,9 @@ public class Event {
     public Event() {
     }
 
+    // @ManyToOne - one per Band
+    // @ManyToMany - multiple
+
     public Event(int id, String location, String vendorName, String date, String vendorAddress, String vendorPhone, String vendorWebsite) {
         this.id = id;
         this.location = location;
