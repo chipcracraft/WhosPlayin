@@ -23,5 +23,5 @@ nbbuild/
 dist/
 nbdist/
 
-### WOOOO ###
+###Client###
 node_modules/
