@@ -25,3 +25,9 @@ nbdist/
 
 ###Client###
 node_modules/
+.nb-gradle/
+
+*.db
+
+###Client###
+node_modules
