@@ -28,3 +28,6 @@ nbdist/
 node_modules
 
 *.db
+
+###Client###
+node_modules
