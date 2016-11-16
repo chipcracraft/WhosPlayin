@@ -22,7 +22,6 @@ build/
 nbbuild/
 dist/
 nbdist/
-.nb-gradle/
 
 ### WOOOO ###
 node_modules/
