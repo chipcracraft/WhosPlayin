@@ -21,38 +21,25 @@ public class Event {
     @Column
     String date;
 
-    @Column
-    String vendorAddress;
-
-    @Column
-    String vendorPhone;
-
-    @Column
-    String vendorWebsite;
 
     public Event() {
     }
-
+    // @ManyToOne - multiple events per vendor
     // @ManyToOne - one per Band
     // @ManyToMany - multiple
 
-    public Event(int id, String location, String vendorName, String date, String vendorAddress, String vendorPhone, String vendorWebsite) {
+    public Event(int id, String location, String vendorName, String date) {
         this.id = id;
         this.location = location;
         this.vendorName = vendorName;
         this.date = date;
-        this.vendorAddress = vendorAddress;
-        this.vendorPhone = vendorPhone;
-        this.vendorWebsite = vendorWebsite;
+
     }
 
-    public Event(String location, String vendorName, String date, String vendorAddress, String vendorPhone, String vendorWebsite) {
+    public Event(String location, String vendorName, String date) {
         this.location = location;
         this.vendorName = vendorName;
         this.date = date;
-        this.vendorAddress = vendorAddress;
-        this.vendorPhone = vendorPhone;
-        this.vendorWebsite = vendorWebsite;
     }
 
     public int getId() {
@@ -87,27 +74,4 @@ public class Event {
         this.date = date;
     }
 
-    public String getVendorAddress() {
-        return vendorAddress;
-    }
-
-    public void setVendorAddress(String vendorAddress) {
-        this.vendorAddress = vendorAddress;
-    }
-
-    public String getVendorPhone() {
-        return vendorPhone;
-    }
-
-    public void setVendorPhone(String vendorPhone) {
-        this.vendorPhone = vendorPhone;
-    }
-
-    public String getVendorWebsite() {
-        return vendorWebsite;
-    }
-
-    public void setVendorWebsite(String vendorWebsite) {
-        this.vendorWebsite = vendorWebsite;
-    }
 }
