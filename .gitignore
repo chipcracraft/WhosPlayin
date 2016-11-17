@@ -24,9 +24,7 @@ dist/
 nbdist/
 .nb-gradle/
 
-<<<<<<< HEAD
 ###Client###
 node_modules
-=======
+
 *.db
->>>>>>> 6698397115cf37e68bc20c64854c8e33ae2d298e
