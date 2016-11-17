@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Backbone from 'backbone';
-console.log(React)
+
 const HomeView = React.createClass({
   render: function(){
     return (
              <div className="main-container">
-               <i class="fa fa-bars fa-6x hamburger" aria-hidden="true"></i>
+               <i className="fa fa-bars fa-6x hamburger" aria-hidden="true"></i>
                <div className="row">
                  <CardView />
                </div>
-               <a href="/login" />
+               <a href="/login"/>
              </div>
            )
   }

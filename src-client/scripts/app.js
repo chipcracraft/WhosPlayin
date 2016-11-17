@@ -5,9 +5,11 @@ const Backbone = require('backbone');
 const {HomeView, CardView } = require('./main-view');
 document.querySelector('#app-container').innerHTML = `<h1>Yah okay</h1>`
 
+ReactDOM.render(<HomeView />, document.querySelector("#app-container"));
+
 const AppRouter = Backbone.Router.extend({
   routes: {
-    "*path"  : "showHomePage",
+    ""  : "showHomePage",
     "/splash": "showSplashPage"
   },
 
@@ -16,7 +18,7 @@ const AppRouter = Backbone.Router.extend({
   },
 
   _showSplashPage: function(){
-    console.log("haha jk we haven't wired this up yet!")
+    console.log("haha jk we haven't wired this up yet!");
   },
 
   initialize: function(){
