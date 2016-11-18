@@ -10,20 +10,20 @@ ReactDOM.render(<HomeView />, document.querySelector("#app-container"));
 const AppRouter = Backbone.Router.extend({
   routes: {
     ""       : "showHomePage",
-    "/splash": "showSplashPage"
+    "/splash": "showSplashPage",
     "/signup": "showSignUpPage"
   },
 
   _showHomePage: function(){
     ReactDOM.render(<HomeView />, document.querySelector("#app-container"));
   },
-
   _showSplashPage: function(){
     console.log("haha jk we haven't wired this up yet!");
   },
   _showSignUpPage: function(){
     ReactDOM.render(<SignUpView/>, document.querySelector('#app-container'))
-  }
+  },
+
   initialize: function(){
     Backbone.history.start();
   }

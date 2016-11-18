@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Backbone from 'backbone';
-// import AppBar from 'material-ui/AppBar';
-// import IconButton from 'material-ui/IconButton';
-// import IconMenu from 'material-ui/IconMenu';
-// import MenuItem from 'material-ui/MenuItem';
-// import FlatButton from 'material-ui/FlatButton';
-// import Toggle from 'material-ui/Toggle';
-// import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-// import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import FlatButton from 'material-ui/FlatButton';
+import Toggle from 'material-ui/Toggle';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import NavigationClose from 'material-ui/svg-icons/navigation/close';
 
 const mainStyle = {
   background: '#222',
@@ -24,6 +24,7 @@ const HomeView = React.createClass({
     return (
             <div className="main-container" style={mainStyle}>
               <a href="/login">log in</a>
+              {/* <Login /> */}
               <i className="fa fa-bars fa-4x hamburger" aria-hidden="true" style={hamburgerStyle}></i>
               <div className="row">
                 <CardView />
@@ -80,7 +81,7 @@ const CardView = React.createClass({
     )
   }
 });
-
+// let muiName = ''
 // class Login extends Component {
 //   static muiName = 'FlatButton';
 //
@@ -141,6 +142,6 @@ const CardView = React.createClass({
 //     );
 //   }
 // }
-//
+
 // export default AppBarExampleComposition;
 module.exports = {HomeView, CardView}
