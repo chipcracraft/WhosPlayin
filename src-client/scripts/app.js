@@ -1,5 +1,4 @@
 const ReactDOM = require('react-dom');
-<<<<<<< HEAD
 const React = require('react');
 const Backbone = require('backbone');
 
@@ -10,8 +9,9 @@ ReactDOM.render(<HomeView />, document.querySelector("#app-container"));
 
 const AppRouter = Backbone.Router.extend({
   routes: {
-    ""  : "showHomePage",
+    ""       : "showHomePage",
     "/splash": "showSplashPage"
+    "/signup": "showSignUpPage"
   },
 
   _showHomePage: function(){
@@ -21,17 +21,14 @@ const AppRouter = Backbone.Router.extend({
   _showSplashPage: function(){
     console.log("haha jk we haven't wired this up yet!");
   },
-
+  _showSignUpPage: function(){
+    ReactDOM.render(<SignUpView/>, document.querySelector('#app-container'))
+  }
   initialize: function(){
     Backbone.history.start();
   }
 })
 
 const app = new AppRouter;
-=======
-const React = require('react')
-const Backbone = require('backbone');
-
 
 new AppRouter()
->>>>>>> 7194cacbfdfc9251184d0323c2ff694cfe0a32bc
