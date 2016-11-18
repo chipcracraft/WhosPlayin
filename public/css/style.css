@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 *{box-sizing:border-box}body{font-family:Helvetica, Arial, sans-serif}h1{font-size:100px;text-align:center;color:indianred}footer{background:#e96443;background:-webkit-linear-gradient(right, #e96443, #904e95);background:-o-linear-gradient(right, #e96443, #904e95);background:linear-gradient(to left, #e96443, #904e95)}.hamburger{color:#f5f5f5}body{display:flex;min-height:100vh;flex-direction:column}main{flex:1 0 auto}
+=======
+*{box-sizing:border-box}body{font-family:Helvetica, Arial, sans-serif}h1{font-size:300px;text-align:center;color:fuchsia}
+>>>>>>> 7194cacbfdfc9251184d0323c2ff694cfe0a32bc

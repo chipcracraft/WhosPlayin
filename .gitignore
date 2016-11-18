@@ -24,6 +24,9 @@ dist/
 nbdist/
 
 ###Client###
+node_modules
+
+###Client###
 node_modules/
 .nb-gradle/
 

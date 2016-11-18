@@ -1,3 +1,8 @@
 {
+<<<<<<< HEAD
   presets: ["es2015", "react"]
 }
+=======
+	presets: ["es2015","react"]
+}
+>>>>>>> 7194cacbfdfc9251184d0323c2ff694cfe0a32bc

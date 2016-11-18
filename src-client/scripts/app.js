@@ -1,4 +1,5 @@
 const ReactDOM = require('react-dom');
+<<<<<<< HEAD
 const React = require('react');
 const Backbone = require('backbone');
 
@@ -27,3 +28,10 @@ const AppRouter = Backbone.Router.extend({
 })
 
 const app = new AppRouter;
+=======
+const React = require('react')
+const Backbone = require('backbone');
+
+
+new AppRouter()
+>>>>>>> 7194cacbfdfc9251184d0323c2ff694cfe0a32bc
