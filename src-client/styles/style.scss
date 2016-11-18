@@ -11,3 +11,22 @@ h1 {
 	text-align: center;
 	color: indianred;
 }
+footer {
+	background: #e96443; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #e96443, #904e95);
+  background: -o-linear-gradient(right, #e96443, #904e95);
+  background: linear-gradient(to left, #e96443, #904e95); /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.hamburger {
+	color: #f5f5f5;
+}
+// sticky footer
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
