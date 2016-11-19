@@ -5,3 +5,9 @@ const getPos = navigator.geolocation.getCurrentPosition(function(position) {
 module.exports = {
   getPos
 }
+// OR
+
+const getPosByIP = function(){
+  // let userIP = logic for grabbing userIP
+  $.getJSON('freegeoip.net/{format}/{'+ userIP +'}').then(console.log)
+}

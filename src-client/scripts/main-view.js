@@ -12,13 +12,17 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 
 const mainStyle = {
   background: '#222',
+  overflow: 'auto',
+  paddingBottom: '180px',
 }
+
 const hamburgerStyle = {
   color: '#f5f5f5',
   position: 'fixed',
   right: 10,
-  top: 10
+  top: 10,
 }
+
 const HomeView = React.createClass({
   render: function(){
     return (
@@ -27,6 +31,8 @@ const HomeView = React.createClass({
               {/* <Login /> */}
               <i className="fa fa-bars fa-4x hamburger" aria-hidden="true" style={hamburgerStyle}></i>
               <div className="row">
+                <CardView />
+                <CardView />
                 <CardView />
               </div>
               <footer className="page-footer">
@@ -61,12 +67,11 @@ const HomeView = React.createClass({
 const CardView = React.createClass({
   render: function(){
     return (
-      <div className="row">
         <div className="col s12 m4">
           <div className="card z-depth-5">
             <div className="card-content black-text">
               <div className="card-image">
-                <img src="https://unsplash.it/275/?random"></img>
+                <img src="https://unsplash.it/200/?random"></img>
 
               </div>
               <span className="card-title">artist name</span>
@@ -77,7 +82,6 @@ const CardView = React.createClass({
             </div>
           </div>
         </div>
-      </div>
     )
   }
 });
