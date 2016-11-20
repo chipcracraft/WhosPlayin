@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Backbone from 'backbone';
+
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
@@ -48,11 +49,11 @@ const HomeView = React.createClass({
                     </div>
                   </div>
                   <div className="col l4 s8">
-                    <h6 className="white-text">wow a progress should go here</h6>
+                    <h6 className="white-text">wow a progress bar here</h6>
                   </div>
                   <div className="col l4 s10">
                     <ul>
-                      <li><a className="grey-text text-lighten-3 right" href="#!">The Band </a></li>
+                      <li><a className="grey-text text-lighten-3 right" href="#!">The Band</a></li>
                       <br></br>
                       <li><a className="grey-text text-lighten-3 right" href="#!">The Song</a></li>
                     </ul>
@@ -67,8 +68,8 @@ const HomeView = React.createClass({
 const CardView = React.createClass({
   render: function(){
     return (
-        <div className="col s12 m4">
-          <div className="card z-depth-5">
+        <div className="col s12 m3">
+          <div className="card small z-depth-5">
             <div className="card-content black-text">
               <div className="card-image">
                 <img src="https://unsplash.it/200/?random"></img>
@@ -112,12 +113,7 @@ const CardView = React.createClass({
 // );
 //
 // Logged.muiName = 'IconMenu';
-//
-// /**
-//  * This example is taking advantage of the composability of the `AppBar`
-//  * to render different components depending on the application state.
-//  */
-//
+
 // class AppBarExampleComposition extends Component {
 //   state = {
 //     logged: true,
