@@ -28,6 +28,8 @@ import java.sql.SQLException;
 @RestController
 public class WhosPlayinRestController {
 
+//    public final String API_KEY = "YlX4r2ab8xzzlYDB";
+
     @Autowired
     BandRepo bands;
 
@@ -139,24 +141,13 @@ public class WhosPlayinRestController {
         users.delete(validUser);
     }
 
+    // REQUEST LOCATION
 
-    // request venues from songkick api
-
-    // request artists from songkick api
-
-    // request events from songkick api
-        // previously attended events
-
-    // list of events coming near you (params set)
-
-    // add this artist to a spotify playlist
-
-    // ** get updates of coming bands to your phone
-
-    // search events based off venues/bands/genre/date
+//    @RequestMapping(path = "/")
 
 
 
 }
+
 
 
