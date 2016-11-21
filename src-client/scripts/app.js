@@ -28,6 +28,4 @@ const AppRouter = Backbone.Router.extend({
   }
 })
 
-const app = new AppRouter;
-
 new AppRouter()
