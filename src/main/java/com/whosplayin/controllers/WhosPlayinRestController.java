@@ -24,6 +24,7 @@ import java.sql.SQLException;
 /**
  * Created by rdw1995 on 11/15/16.
  */
+
 @RestController
 public class WhosPlayinRestController {
 
@@ -73,21 +74,21 @@ public class WhosPlayinRestController {
 
     // sign-in for WhosPlayin account
 
-    @RequestMapping(path = "/sign-in", method = RequestMethod.GET)
+    @RequestMapping(path = "/sign-in", method = RequestMethod.POST)
     public void signIn (HttpSession session, @RequestBody User user) throws Exception {
         User randomUser = users.findFirstByUsername(user.getUsername());
         if(randomUser == null){
             throw new Exception("Username doesn't exist! Please Sign-Up!");
         }
         else if (!PasswordStorage.verifyPassword(user.getPassword(), randomUser.getPassword())){
-            throw new Exception("Oops - incorect password! Try again!");
+            throw new Exception("Oops - incorrect password! Try again!");
         }
         session.setAttribute("username", user.getUsername());
     }
 
     // sign-out of WhosPlayin account
 
-    @RequestMapping(path = "/sign-out")
+    @RequestMapping(path = "/sign-out", method = RequestMethod.POST)
     public void signOut(HttpSession session){
         session.invalidate();
     }
@@ -116,6 +117,7 @@ public class WhosPlayinRestController {
         }
         validUser.setUsername(user.getUsername());
         validUser.setPassword(user.getPassword());
+        // PasswordStorage.verifyPassword(^username.getPassword())
         validUser.setCity(user.getCity());
         validUser.setEmail(user.getCity());
         validUser.setFirstName(user.getFirstName());
@@ -131,24 +133,28 @@ public class WhosPlayinRestController {
     public void deleteAccount (HttpSession session, @RequestBody User user) throws Exception {
         String username = (String) session.getAttribute("username");
         User validUser = users.findFirstByUsername(username);
-        if(!PasswordStorage.verifyPassword(validUser.getPassword(), validUser.getPassword())){
-            throw new Exception("Sesame can not open - please try again!");
+        if(!PasswordStorage.verifyPassword(user.getPassword(), validUser.getPassword())){
+            throw new Exception("Sesame cannot open - please try again!");
         }
-        users.delete(user);
+        users.delete(validUser);
     }
 
 
-    // upcoming events from songkick api
+    // request venues from songkick api
 
-    // previously attended events
+    // request artists from songkick api
+
+    // request events from songkick api
+        // previously attended events
 
     // list of events coming near you (params set)
 
     // add this artist to a spotify playlist
 
-    // get updates of coming bands to your phone
+    // ** get updates of coming bands to your phone
 
     // search events based off venues/bands/genre/date
+
 
 
 }
