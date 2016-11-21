@@ -1,6 +1,8 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 
+// const ACTIONS = require('./actions.js')
+
 const SignUpView = React.createClass({
       _handleSignIn: function(evt){
          evt.preventDefault()
@@ -32,14 +34,14 @@ const SignUpView = React.createClass({
                <div className="container text-left login-page">
                  <div className="row">
                    <div className="column left-column col-xs-12 col-sm-6">
-                    <form action="" className="sign-in" onSubmit={this._handleSignIn}>
+                    <form className="sign-in" onSubmit={this._handleSignIn}>
                        <h3>Sign In</h3>
                          <input type="text" className="form-control" placeholder="Email Address" name="username"/>
                            <br></br>
                          <input type="text" className="form-control" placeholder="Password" name="password"/>
                            <br></br>
-                           <i class="fa fa-spotify" aria-hidden="true"></i>
-                           <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                           <i className="fa fa-spotify" aria-hidden="true"></i>
+                           <i className="fa fa-facebook-square" aria-hidden="true"></i>
 
                          <button className="text-center" type="submit">Sign In</button>
                     </form>
@@ -47,7 +49,7 @@ const SignUpView = React.createClass({
 
 
                  <div className="column right-column col-xs-12 col-sm-6">
-                 <form action="" className="sign-up" onSubmit={this._handleSignUp}>
+                 <form className="sign-up" onSubmit={this._handleSignUp}>
                    <h3>Sign Up</h3>
                      <input type="text" className="form-control" placeholder="First Name" name="firstName"/>
                    <br></br>
@@ -68,4 +70,4 @@ const SignUpView = React.createClass({
      }
 
 })
-module.exports {SignUpView}
+module.exports = SignUpView
