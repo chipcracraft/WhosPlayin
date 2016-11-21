@@ -16,8 +16,7 @@ const fetchMetroData = function(){
     if (!error && response.statusCode !== 200){
       document.getElementById('app-container').appendChild("<h1>it's all broken!!!</h1>")
     }
-  }
-
+  })
 }
 
 const fetchMetroConcerts = function(){
@@ -32,7 +31,9 @@ const fetchMetroConcerts = function(){
   })
 }
 
-module.exports {
-  fetchData,
-  getLocation
+module.exports = {
+  fetchMetroData,
+  fetchMetroConcerts,
+  userMetro,
+  metroConcerts
 }
