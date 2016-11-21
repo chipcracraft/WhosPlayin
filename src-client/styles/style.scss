@@ -1,0 +1,104 @@
+@import "../../node_modules/font-awesome/scss/font-awesome.scss";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: Helvetica, Arial, sans-serif;
+	height: 100%;
+	background-position: center;
+}
+
+
+
+.login-page {
+color: white;
+background: #e96443; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #e96443 , #904e95); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #e96443 , #904e95); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+font-family: 'Abel', sans-serif;
+}
+
+
+button {
+	background-color: #6A3066;
+	margin-left: 33%;
+	padding: 2% 17%;
+}
+
+input {
+	opacity: 0.2;
+	color: white;
+
+.splash-container {
+	.splash-title {
+		position: absolute;
+		top: 10px;
+		left: 20px;
+	}
+
+	.splash-login {
+		position: absolute;
+		top: 10px;
+		right: 20px;
+	}
+
+	.splash-top {
+		background-color: #F5F5F5;
+		height: 300px;
+		text-align: center;
+		padding-top: 150px;
+
+		.listen-button {
+			border: 1px solid black;
+			width: 50px;
+			margin: auto;
+		}
+	}
+
+	.splash-bottom {
+		height: 300px;
+		background-image: url("http://cache.gawkerassets.com/assets/images/9/2008/12/no_doubt_rock_band.jpg");
+		background-size: cover;
+	}
+
+h1 {
+	font-size: 100px;
+	text-align: center;
+	color: fuchsia;
+
+}
+footer {
+	position: relative;
+	margin-top: -180px;
+	height: 180px;
+	clear: both;
+	background: #e96443; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #e96443, #904e95);
+  background: -o-linear-gradient(right, #e96443, #904e95);
+  background: linear-gradient(to left, #e96443, #904e95); /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#app-container {
+	min-height: 100%;
+	.card {
+		max-width: 25%;
+		width: 20%;
+	}
+	.hamburger {
+		color: #f5f5f5;
+	}
+}
+
+// sticky footer
+// body {
+// 	display: flex;
+// 	min-height: 100vh;
+// 	flex-direction: column;
+// }
+//
+// main {
+// 	flex: 1 0 auto;

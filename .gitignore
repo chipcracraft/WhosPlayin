@@ -22,9 +22,21 @@ build/
 nbbuild/
 dist/
 nbdist/
+
+###Client###
+node_modules
+
+###Client###
+node_modules/
 .nb-gradle/
 
 *.db
+
 main.trace.db
 ###Client###
 node_modules
+=======
+
+
+### API Tokens ###
+secrets.js
