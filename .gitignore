@@ -26,11 +26,12 @@ nbdist/
 ###Client###
 node_modules
 
-<<<<<<< HEAD
 ###Client###
 node_modules/
 .nb-gradle/
 
-=======
->>>>>>> fe65df21314273c94e2f4d6b148bfd58e0e6074b
 *.db
+
+
+### API Tokens ###
+secrets.js

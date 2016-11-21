@@ -30,7 +30,7 @@ const HomeView = React.createClass({
               <a href="/login">log in</a>
               {/* <Login /> */}
               <i className="fa fa-bars fa-4x hamburger" aria-hidden="true" style={hamburgerStyle}></i>
-              <div className="row">
+              <div className="row center">
                 <CardView />
                 <CardView />
                 <CardView />
@@ -72,13 +72,13 @@ const CardView = React.createClass({
             <div className="card-content black-text">
               <div className="card-image">
                 <img src="https://unsplash.it/200/?random"></img>
-
               </div>
               <span className="card-title">artist name</span>
               <p>Maybe artist info/ date & time info should go here</p>
             </div>
             <div className="card-action">
-              <a href="/play">listen now</a>
+              <iframe style={"margin-left: 0;"} src="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:5Z7ygHQo02SUrFmcgpwsKW,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" frameBorder="0" allowTransparency="true"></iframe>
+              <a href="/view-more">view more!!!</a>
             </div>
           </div>
         </div>
