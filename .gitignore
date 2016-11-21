@@ -26,3 +26,5 @@ nbdist/
 
 *.db
 main.trace.db
+###Client###
+node_modules
