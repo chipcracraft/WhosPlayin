@@ -31,9 +31,9 @@ button {
 }
 
 input {
-	opacity: 0.2;
+	opacity: 0.7;
 	color: white;
-
+}
 .splash-container {
 	.splash-title {
 		position: absolute;
@@ -46,7 +46,7 @@ input {
 		top: 10px;
 		right: 20px;
 	}
-
+}
 	.splash-top {
 		background-color: #F5F5F5;
 		height: 300px;
@@ -66,12 +66,6 @@ input {
 		background-size: cover;
 	}
 
-h1 {
-	font-size: 100px;
-	text-align: center;
-	color: fuchsia;
-
-}
 footer {
 	position: relative;
 	margin-top: -180px;
@@ -84,6 +78,7 @@ footer {
 }
 #app-container {
 	min-height: 100%;
+
 	.card {
 		max-width: 25%;
 		width: 20%;
