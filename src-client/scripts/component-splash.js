@@ -1,6 +1,6 @@
 const React = require('react')
 
-// const ACTIONS = require('./actions.js')
+const ACTIONS = require('./actions.js')
 
 const SplashPageView = React.createClass({
    _handleClick: function(){
@@ -8,7 +8,7 @@ const SplashPageView = React.createClass({
    },
 
    _signUp: function(){
-      console.log('go to signup')
+      window.location.hash="signup"
    },
 
    render: function(){

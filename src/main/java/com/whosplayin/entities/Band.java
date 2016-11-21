@@ -27,6 +27,13 @@ public class Band {
     @Column
     String bandMembers;
 
+//    @ManyToMany(
+//            targetEntity = Event.class,
+//            cascade = {CascadeType.PERSIST, CascadeType.MERGE}
+//    )
+
+
+
     public Band() {
     }
 

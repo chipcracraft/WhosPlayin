@@ -4,6 +4,12 @@ const ReactDOM = require('react-dom')
 const ACTIONS = require('./actions.js')
 
 const SignUpView = React.createClass({
+      getInitialState: function() {
+         return {
+             signInData: []
+         };
+      },
+
       _handleSignIn: function(evt){
          evt.preventDefault()
 
@@ -12,7 +18,7 @@ const SignUpView = React.createClass({
             password: evt.target.password.value
          }
 
-         console.log(userObj)
+         ACTIONS._signInUser(userObj)
       },
 
       _handleSignUp: function(evt){
@@ -36,7 +42,7 @@ const SignUpView = React.createClass({
                    <div className="column left-column col-xs-12 col-sm-6">
                     <form className="sign-in" onSubmit={this._handleSignIn}>
                        <h3>Sign In</h3>
-                         <input type="text" className="form-control" placeholder="Email Address" name="username"/>
+                         <input type="text" className="form-control" placeholder="Username" name="username"/>
                            <br></br>
                          <input type="text" className="form-control" placeholder="Password" name="password"/>
                            <br></br>
