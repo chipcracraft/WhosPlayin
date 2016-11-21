@@ -4,17 +4,16 @@ const Backbone = require('backbone');
 
 const STORE = {
     _data : {
-
       currentViewSetting: '',
-      currentSongs: [],
+      currentSongs: []
     },
 
     setStore: function(storeProp, payload){
 
-    }
+
     this._data[storeProp] = payload
     BackBone.Events.trigger('storeChange')
-},
+    },
 
     getStoreData: function(){
        return this._data
@@ -26,4 +25,4 @@ const STORE = {
     }
 }
 
-modules.export = STORE
+module.exports = STORE

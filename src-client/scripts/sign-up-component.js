@@ -1,14 +1,14 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 
-// const ACTIONS = require('./actions.js')
+const ACTIONS = require('./actions.js')
 
 const SignUpView = React.createClass({
       _handleSignIn: function(evt){
          evt.preventDefault()
 
          let userObj = {
-            name: evt.target.username.value,
+            username: evt.target.username.value,
             password: evt.target.password.value
          }
 
@@ -26,7 +26,7 @@ const SignUpView = React.createClass({
             password: evt.target.password.value
          }
 
-         console.log(newUserObj)
+         ACTIONS._signUpUser(newUserObj)
       },
 
      render: function(){
