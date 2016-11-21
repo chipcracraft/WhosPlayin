@@ -1,6 +1,5 @@
 package com.whosplayin.controllers;
 
-import com.whosplayin.entities.Band;
 import com.whosplayin.entities.User;
 import com.whosplayin.services.BandRepo;
 import com.whosplayin.services.EventRepo;
@@ -10,16 +9,14 @@ import org.h2.tools.Server;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import sun.security.util.Password;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 /**
  * Created by rdw1995 on 11/15/16.
@@ -28,7 +25,7 @@ import java.sql.SQLException;
 @RestController
 public class WhosPlayinRestController {
 
-//    public final String API_KEY = "YlX4r2ab8xzzlYDB";
+    public final String API_KEY = "YlX4r2ab8xzzlYDB";
 
     @Autowired
     BandRepo bands;
@@ -57,6 +54,12 @@ public class WhosPlayinRestController {
     }
 
 
+//    @RequestMapping(path = "/home", method = RequestMethod.GET)
+//    public
+//    @RequestMapping(path = "/home", method = RequestMethod.POST)
+//    public
+
+
 
     // sign-up for a WhosPlayin account
 
@@ -77,15 +80,17 @@ public class WhosPlayinRestController {
     // sign-in for WhosPlayin account
 
     @RequestMapping(path = "/sign-in", method = RequestMethod.POST)
-    public void signIn (HttpSession session, @RequestBody User user) throws Exception {
-        User randomUser = users.findFirstByUsername(user.getUsername());
-        if(randomUser == null){
+    public User signIn (HttpSession session, @RequestBody User user) throws Exception {
+        User aUser = users.findFirstByUsername(user.getUsername());
+        if(aUser == null){
             throw new Exception("Username doesn't exist! Please Sign-Up!");
         }
-        else if (!PasswordStorage.verifyPassword(user.getPassword(), randomUser.getPassword())){
+        else if (!PasswordStorage.verifyPassword(user.getPassword(), aUser.getPassword())){
             throw new Exception("Oops - incorrect password! Try again!");
         }
         session.setAttribute("username", user.getUsername());
+
+        return aUser;
     }
 
     // sign-out of WhosPlayin account
@@ -142,10 +147,17 @@ public class WhosPlayinRestController {
     }
 
     // REQUEST LOCATION
-
-//    @RequestMapping(path = "/")
-
-
+//    @RequestMapping(path = "/location", method = RequestMethod.GET)
+//    public HashMap getLocation() {
+//        RestTemplate query = new RestTemplate();
+//        String request = "http://api.songkick.com/api/3.0/search/locations.json";
+//        HashMap result = query.getForObject(request, HashMap.class);
+//        String type = (String) result.get("location");
+//        if (type.equals("id")) {
+//            return (HashMap) result.get("location");
+//        }
+//        return null;
+//    }
 
 }
 
