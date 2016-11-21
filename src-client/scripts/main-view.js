@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Backbone from 'backbone';
-import AppBar from 'material-ui/AppBar';
-import IconButton from 'material-ui/IconButton';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import FlatButton from 'material-ui/FlatButton';
-import Toggle from 'material-ui/Toggle';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
+// import AppBar from 'material-ui/AppBar';
+// import IconButton from 'material-ui/IconButton';
+// import IconMenu from 'material-ui/IconMenu';
+// import MenuItem from 'material-ui/MenuItem';
+// import FlatButton from 'material-ui/FlatButton';
+// import Toggle from 'material-ui/Toggle';
+// import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+// import NavigationClose from 'material-ui/svg-icons/navigation/close';
 
 const mainStyle = {
   background: '#222',
@@ -74,10 +74,10 @@ const CardView = React.createClass({
                 <img src="https://unsplash.it/200/?random"></img>
               </div>
               <span className="card-title">artist name</span>
-              <p>Maybe artist info/ date & time info should go here</p>
+              <h6>Maybe artist info/ date & time info should go here</h6>
             </div>
             <div className="card-action">
-              <iframe style={"margin-left: 0;"} src="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:5Z7ygHQo02SUrFmcgpwsKW,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" frameBorder="0" allowTransparency="true"></iframe>
+              <iframe src="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:5Z7ygHQo02SUrFmcgpwsKW,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" frameBorder="0" allowTransparency="true"></iframe>
               <a href="/view-more">view more!!!</a>
             </div>
           </div>
