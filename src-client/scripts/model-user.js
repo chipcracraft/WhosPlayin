@@ -5,7 +5,7 @@ const UserModel = Backbone.Model.extend({
    url:"",
 
    initialize: function(str){
-      this.url = "/sign-" + str
+      this.url = str
    }
 })
 

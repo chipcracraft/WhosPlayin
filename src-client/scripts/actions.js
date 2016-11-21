@@ -6,7 +6,7 @@ const UserModel = require('./model-user.js').UserModel
 const ACTIONS = {
       _signUpUser: function(newUserObj){
             console.log(newUserObj)
-           let userMod = new UserModel("up")
+           let userMod = new UserModel("/sign-up")
            userMod.set(newUserObj)
            console.log(userMod)
 
@@ -18,23 +18,26 @@ const ACTIONS = {
 
       _signInUser: function(userObj){
             console.log(userObj)
-           let userMod = new UserModel("in")
+           let userMod = new UserModel("/sign-in")
            userMod.set(userObj)
            console.log(userMod)
 
          userMod.save().then(function(serverRes){
             console.log(serverRes)
-            window.location.hash = ""
+            window.location.hash = "home"
+         })
+      },
+
+      _captureLocation: function(locationObj){
+         console.log(locationObj)
+         let locationMod = new UserModel("/location")
+         locationMod.set(locationObj)
+
+         locationMod.save().then(function(serverRes){
+            console.log(serverRes)
+            window.location.hash = "home"
          })
       }
-
-      // fetchSignInData: function(userObj){
-      //     let userMod = new UserModel("in")
-      //         userMod.fetch().then(function(){
-      //           STORE.setStore('signInData', userMod)
-      //           window.location.hash=""
-      //         })
-      // }
 
 }
 
