@@ -1,10 +1,13 @@
 const Backbone = require('backbone');
 
 const UserModel = Backbone.Model.extend({
-      url:"/sign-in",
-      initialize: function(){
+   url:"",
 
-      }
+   initialize: function(str){
+      this.url = "/sign-" + str
+   }
 })
 
-module.exports = UserModel
+module.exports = {
+   UserModel
+}
