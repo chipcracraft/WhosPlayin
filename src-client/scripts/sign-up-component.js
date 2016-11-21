@@ -68,7 +68,4 @@ const SignUpView = React.createClass({
      }
 
 })
-
-ReactDOM.render(<SignUpView/>, document.querySelector('#app-container'))
-
-module.exports=SignUpView
+module.exports {SignUpView}

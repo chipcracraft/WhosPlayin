@@ -22,9 +22,16 @@ build/
 nbbuild/
 dist/
 nbdist/
-.nb-gradle/
 
 ###Client###
 node_modules
 
+###Client###
+node_modules/
+.nb-gradle/
+
 *.db
+
+
+### API Tokens ###
+secrets.js
