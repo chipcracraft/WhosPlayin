@@ -32,6 +32,11 @@ node_modules/
 
 *.db
 
+main.trace.db
+###Client###
+node_modules
+
+
 
 ### API Tokens ###
 secrets.js
