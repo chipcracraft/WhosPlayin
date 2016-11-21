@@ -26,10 +26,9 @@ componentWillMount: function(){
 render: function(){
       switch (this.props.routedFrom) {
         case "splashPage":
-              return <
-
+              return <SignUpView/>
           break;
-        default:
+        
 
       }
 

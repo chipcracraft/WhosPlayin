@@ -45,6 +45,11 @@ module.exports {
   spotifyKey
 }
 
+main.trace.db
+###Client###
+node_modules
+
+
 
 ### API Tokens ###
 secrets.js
