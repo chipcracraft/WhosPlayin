@@ -22,10 +22,13 @@ build/
 nbbuild/
 dist/
 nbdist/
-.nb-gradle/
 
 ###Client###
 node_modules
+
+###Client###
+node_modules/
+.nb-gradle/
 
 *.db
 
@@ -41,3 +44,7 @@ module.exports {
   ticketMasterKey,
   spotifyKey
 }
+
+
+### API Tokens ###
+secrets.js
