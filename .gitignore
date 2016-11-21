@@ -28,3 +28,16 @@ nbdist/
 node_modules
 
 *.db
+
+// songkick
+const songKickKey = "YlX4r2ab8xzzlYDB"
+// ticketmaster
+const ticketMasterKey = "Nejq6QyKwG291bUIKYqbZbcY0oyRdeLP"
+// spotify
+const spotifyKey = "4d3d0be0258c4de89c2b67214a1facf2"
+
+module.exports {
+  songKickKey,
+  ticketMasterKey,
+  spotifyKey
+}
