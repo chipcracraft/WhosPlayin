@@ -1,7 +1,7 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 
-const ACTIONS = require('./actions.js')
+// const ACTIONS = require('./actions.js')
 
 const SignUpView = React.createClass({
       _handleSignIn: function(evt){
@@ -40,8 +40,8 @@ const SignUpView = React.createClass({
                            <br></br>
                          <input type="text" className="form-control" placeholder="Password" name="password"/>
                            <br></br>
-                           <i class="fa fa-spotify" aria-hidden="true"></i>
-                           <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                           <i className="fa fa-spotify" aria-hidden="true"></i>
+                           <i className="fa fa-facebook-square" aria-hidden="true"></i>
 
                          <button className="text-center" type="submit">Sign In</button>
                     </form>
@@ -70,4 +70,4 @@ const SignUpView = React.createClass({
      }
 
 })
-module.exports=SignUpView
+module.exports = SignUpView
