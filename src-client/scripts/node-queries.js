@@ -4,7 +4,7 @@ import request from 'request'
 
 const getLocation = navigator.geolocation.getCurrentPosition(function(position) {
   console.log(position.coords.latitude, position.coords.longitude);
-  const userLocation = position.coords.latitude + position.coords.longitude
+  return position.coords.latitude + position.coords.longitude
 });
 
 const fetchMetroData = function(){

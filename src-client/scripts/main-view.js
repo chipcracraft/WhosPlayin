@@ -52,9 +52,9 @@ const HomeView = React.createClass({
                   </div>
                   <div className="col l4 s10">
                     <ul>
-                      <li><a className="grey-text text-lighten-3 right" href="#!">The Band</a></li>
+                      <li><a className="grey-text text-lighten-3 right" href="#!">this.props.band-name</a></li>
                       <br></br>
-                      <li><a className="grey-text text-lighten-3 right" href="#!">The Song</a></li>
+                      <li><a className="grey-text text-lighten-3 right" href="#!">this.props.artist-name</a></li>
                     </ul>
                   </div>
                 </div>
@@ -73,12 +73,14 @@ const CardView = React.createClass({
               <div className="card-image">
                 <img src="https://unsplash.it/200/?random"></img>
               </div>
-              <span className="card-title">artist name</span>
-              <h6>Maybe artist info/ date & time info should go here</h6>
+              <span className="card-title">this.props.band-name</span>
+              <h6>this.props.artist-name.bio</h6>
+              <h6>this.props.date-time</h6>
+
             </div>
             <div className="card-action">
               <iframe src="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:5Z7ygHQo02SUrFmcgpwsKW,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" frameBorder="0" allowTransparency="true"></iframe>
-              <a href="/view-more">view more!!!</a>
+              <a href="/view-more">view more</a>
             </div>
           </div>
         </div>
