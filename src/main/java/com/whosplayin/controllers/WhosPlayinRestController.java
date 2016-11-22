@@ -58,6 +58,10 @@ public class WhosPlayinRestController {
         h2.stop();
     }
 
+
+
+
+
     // sign-up for a WhosPlayin account
 
     @RequestMapping(path = "/sign-up", method = RequestMethod.POST)
