@@ -1,5 +1,5 @@
 const Backbone = require('backbone');
-const STORE = require('./stores.js');
+const STORE = require('./store.js');
 
 const UserModel = require('./model-user.js').UserModel
 
