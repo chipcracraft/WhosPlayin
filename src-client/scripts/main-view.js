@@ -23,14 +23,14 @@ const hamburgerStyle = {
   top: 10,
 }
 
-const schema = {
-  bandName:
-  trackName:
-  dateTime:
-  trackSet:
-  /*trackset is for a spotify playlist populated
-  by unique trackIDs separated by semicolons*/
-}
+// const schema = {
+//   bandName: wow,
+//   trackName: wow,
+//   dateTime: wow,
+//   trackSet:
+//   /*trackset is for a spotify playlist populated
+//   by unique trackIDs separated by semicolons*/
+// }
 
 const HomeView = React.createClass({
   render: function(){
@@ -74,8 +74,8 @@ const HomeView = React.createClass({
 const CardView = React.createClass({
   render: function(){
     return (
-        <div className="col s12 m4 hoverable">
-          <div className="card small z-depth-5">
+        <div className="col s12 m4">
+          <div className="card">
             <div className="card-content black-text">
               <div className="card-image">
                 <img src="https://unsplash.it/200/?random"></img>
@@ -85,7 +85,7 @@ const CardView = React.createClass({
               <h6>{this.props.datetime}</h6>
             </div>
             <div className="cta">
-              <iframe src="https://embed.spotify.com/?uri=spotify:trackset:WOWILOVEMEMES:4uLU6hMCjMI75M1A2tKUQC,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" frameBorder="0" allowTransparency="true"></iframe>
+              <iframe src="https://embed.spotify.com/?uri=spotify:trackset:WOWILOVEMEMES:3LX0Qc1iKkqLZP0FijjLmI,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" frameBorder="0" allowTransparency="true"></iframe>
               <a href="/band-view">view full playlist</a>
             </div>
           </div>
