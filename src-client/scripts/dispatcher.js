@@ -28,10 +28,22 @@ render: function(){
         case "splashPage":
               return <SignUpView/>
           break;
-        
 
+        case "homePage":
+            return <HomeView signInData={this.state.signInData}/>
+            break;
+
+
+        case  "signUpView":
+              return <SplashPageView/>
+              break;
+
+        case "bandView":
+            return <BandView/>
+            break;      
       }
 
+module.exports = Dispatcher
 
 
 

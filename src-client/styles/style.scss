@@ -26,14 +26,22 @@ font-family: 'Abel', sans-serif;
 
 button {
 	background-color: #6A3066;
-	margin-left: 33%;
+	margin-left: 30%;
 	padding: 2% 17%;
 }
 
-input {
-	opacity: 0.7;
+input .form-control {
+	// opacity: 0.7;
 	color: white;
 }
+
+
+.fa {
+	line-height: 50px;
+	padding: 10%;
+}
+
+
 .splash-container {
 	.splash-title {
 		position: absolute;
@@ -66,6 +74,7 @@ input {
 		background-size: cover;
 	}
 
+
 footer {
 	position: relative;
 	margin-top: -180px;
@@ -86,6 +95,15 @@ footer {
 	.hamburger {
 		color: #f5f5f5;
 	}
+}
+
+.band-image img {
+	height: 350px;
+	width: 425px;
+}
+
+span {
+	font-style: italic;
 }
 
 // sticky footer
