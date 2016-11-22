@@ -12,7 +12,7 @@ const STORE = {
 
 
     this._data[storeProp] = payload
-    BackBone.Events.trigger('storeChange')
+    Backbone.Events.trigger('storeChange')
     },
 
     getStoreData: function(){
