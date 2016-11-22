@@ -17,7 +17,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
-import java.util.ArrayList;
+
 import java.util.HashMap;
 
 
@@ -161,8 +161,6 @@ public class WhosPlayinRestController {
         HashMap search = query.getForObject(builder.build().encode().toUri(), HashMap.class);
         HashMap resultsPage = (HashMap) search.get("resultsPage");
         HashMap results = (HashMap) resultsPage.get("results");
-//        ArrayList<HashMap> locals = (ArrayList<HashMap>) results.get("location");
-
         return results;
     }
 
@@ -206,7 +204,7 @@ public class WhosPlayinRestController {
     // SEARCH FOR VENUES BASED ON LOCATION
 
     @RequestMapping(path = "/search-venues/{location}", method = RequestMethod.GET)
-    public ArrayList<HashMap> getVenues(@PathVariable("location") String location) {
+    public HashMap getVenues(@PathVariable("location") String location) {
         String request = "http://api.songkick.com/api/3.0/search/venues.json";
 
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(request)
@@ -217,9 +215,8 @@ public class WhosPlayinRestController {
         HashMap search = query.getForObject(builder.build().encode().toUri(), HashMap.class);
         HashMap resultsPage = (HashMap) search.get("resultsPage");
         HashMap results = (HashMap) resultsPage.get("results");
-        ArrayList<HashMap> venues = (ArrayList<HashMap>) results.get("venue");
 
-        return venues;
+        return results;
     }
 
 }
