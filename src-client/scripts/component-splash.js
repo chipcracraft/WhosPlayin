@@ -2,9 +2,18 @@ const React = require('react')
 
 const ACTIONS = require('./actions.js')
 
+
 const SplashPageView = React.createClass({
-   _handleClick: function(){
-      console.log("listen to shit")
+   _handleClick: function(evt){
+      evt.preventDefault()
+
+      const getLocation = navigator.geolocation.getCurrentPosition(function(position) {
+
+         const locationObj = {latitude: position.coords.latitude, longitude: position.coords.longitude}
+
+         ACTIONS._captureLocation(locationObj)
+      })
+
    },
 
    _signUp: function(){
