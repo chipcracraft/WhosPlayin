@@ -1,1 +1,1 @@
-console.error("SyntaxError: /Users/j/tiy/assignments/WhosPlayin/src-client/scripts/main-view.js: Unexpected token, expected , (28:11) while parsing file: /Users/j/tiy/assignments/WhosPlayin/src-client/scripts/main-view.js");
+console.error("SyntaxError: /Users/chipc/TIY/assignments/whos-playin/src-client/scripts/main-view.js: Unexpected token, expected , (28:11) while parsing file: /Users/chipc/TIY/assignments/whos-playin/src-client/scripts/main-view.js");
