@@ -136,7 +136,7 @@ public class WhosPlayinRestController {
         users.save(validUser);
     }
 
-    // delete WhosPlayin account
+    // DELETE WHOSPLAYIN ACCOUNT
 
     @RequestMapping(path = "/delete-account", method = RequestMethod.POST)
     public void deleteAccount (HttpSession session, @RequestBody User user) throws Exception {
@@ -169,7 +169,6 @@ public class WhosPlayinRestController {
         return new ResponseEntity<Integer>(metroAreaId, HttpStatus.OK);
     }
 
-
     // REQUEST ALL EVENTS BASED OFF OF AREA ID
 
     @RequestMapping(path = "/events-calendar/{areaId}", method = RequestMethod.GET)
@@ -183,10 +182,21 @@ public class WhosPlayinRestController {
         RestTemplate query = new RestTemplate();
         HashMap search = query.getForObject(builder.build().encode().toUri(), HashMap.class);
         HashMap resultsPage = (HashMap) search.get("resultsPage");
-        ArrayList events = (ArrayList) resultsPage.get("events");
+        HashMap results = (HashMap) resultsPage.get("results");
+        ArrayList event = (ArrayList) results.get("event");
 
-        return new ResponseEntity<ArrayList>(events, HttpStatus.OK);
+        return new ResponseEntity<ArrayList>(event, HttpStatus.OK);
     }
+
+    // COMBINES ABOVE METHODS TO RUN SUCCINCTLY
+    // call interger from method and return the event with id inserted
+
+    @RequestMapping(path = "/whosplayin/{location}", method = RequestMethod.GET)
+    public ResponseEntity<ArrayList> whosplayin(@PathVariable ("location") String location){
+        int metroAreaId = getLocation(location).getBody();
+        return getEvents(metroAreaId);
+    }
+
 
     // SEARCH FOR ARTISTS
 
