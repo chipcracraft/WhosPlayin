@@ -23,6 +23,15 @@ const hamburgerStyle = {
   top: 10,
 }
 
+const schema = {
+  bandName:
+  trackName:
+  dateTime:
+  trackSet:
+  /*trackset is for a spotify playlist populated
+  by unique trackIDs separated by semicolons*/
+}
+
 const HomeView = React.createClass({
   render: function(){
     return (
@@ -32,12 +41,10 @@ const HomeView = React.createClass({
               <i className="fa fa-bars fa-4x hamburger" aria-hidden="true" style={hamburgerStyle}></i>
               <div className="row center">
                 <CardView />
-                <CardView />
-                <CardView />
               </div>
               <footer className="page-footer">
                 <div className="row">
-                  <div className="col l1 s1">
+                  <div className="col l3 s3">
                     <div className="container">
                       <div className="controls">
                         <div className="container">
@@ -47,14 +54,14 @@ const HomeView = React.createClass({
                       </div>
                     </div>
                   </div>
-                  <div className="col l4 s8">
+                  <div className="col l5 s8">
                     <h6 className="white-text">wow a progress bar here</h6>
                   </div>
                   <div className="col l4 s10">
                     <ul>
-                      <li><a className="grey-text text-lighten-3 right" href="#!">The Band</a></li>
+                      <li><a className="grey-text text-lighten-3 right" href="#!">{this.props.bandname}</a></li>
                       <br></br>
-                      <li><a className="grey-text text-lighten-3 right" href="#!">The Song</a></li>
+                      <li><a className="grey-text text-lighten-3 right" href="#!">{this.props.artistname}</a></li>
                     </ul>
                   </div>
                 </div>
@@ -67,22 +74,23 @@ const HomeView = React.createClass({
 const CardView = React.createClass({
   render: function(){
     return (
-        <div className="col s12 m3">
+        <div className="col s12 m4 hoverable">
           <div className="card small z-depth-5">
             <div className="card-content black-text">
               <div className="card-image">
                 <img src="https://unsplash.it/200/?random"></img>
               </div>
-              <span className="card-title">artist name</span>
-              <h6>Maybe artist info/ date & time info should go here</h6>
+              <span className="card-title">{this.props.bandname}</span>
+              <h6>{this.props.artistname}</h6>
+              <h6>{this.props.datetime}</h6>
             </div>
-            <div className="card-action">
-              <iframe src="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:5Z7ygHQo02SUrFmcgpwsKW,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" frameBorder="0" allowTransparency="true"></iframe>
-              <a href="/view-more">view more!!!</a>
+            <div className="cta">
+              <iframe src="https://embed.spotify.com/?uri=spotify:trackset:WOWILOVEMEMES:4uLU6hMCjMI75M1A2tKUQC,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" frameBorder="0" allowTransparency="true"></iframe>
+              <a href="/band-view">view full playlist</a>
             </div>
           </div>
         </div>
-    )
+    );
   }
 });
 // let muiName = ''
