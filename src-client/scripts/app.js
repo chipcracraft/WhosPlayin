@@ -3,11 +3,16 @@ const React = require('react');
 const Backbone = require('backbone');
 const {fetchMetroData, fetchMetroConcerts, userMetro, metroConcerts} = require('./node-queries.js')
 const {HomeView, CardView } = require('./main-view');
+const SignUpView = require('./sign-up-component.js');
+const SplashPageView = require('./component-splash.js');
+
+
 const AppRouter = Backbone.Router.extend({
   routes: {
-      "home": "showHomePage",
-    "*path" : "showSplashPage",
-    "signup": "showSignUpPage"
+    "home" : "showHomePage",
+    "signup": "showSignUpPage",
+    "*path": "showSplashPage"
+
   },
 
   showHomePage: function(){

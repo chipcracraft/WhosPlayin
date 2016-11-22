@@ -32,12 +32,10 @@ const HomeView = React.createClass({
               <i className="fa fa-bars fa-4x hamburger" aria-hidden="true" style={hamburgerStyle}></i>
               <div className="row center">
                 <CardView />
-                <CardView />
-                <CardView />
               </div>
               <footer className="page-footer">
                 <div className="row">
-                  <div className="col l1 s1">
+                  <div className="col l3 s3">
                     <div className="container">
                       <div className="controls">
                         <div className="container">
@@ -47,7 +45,7 @@ const HomeView = React.createClass({
                       </div>
                     </div>
                   </div>
-                  <div className="col l4 s8">
+                  <div className="col l5 s8">
                     <h6 className="white-text">wow a progress bar here</h6>
                   </div>
                   <div className="col l4 s10">
