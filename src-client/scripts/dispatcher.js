@@ -15,6 +15,14 @@ const Dispatcher = React.createClass({
           return startingState;
         },
 
+        componentWillMount: function(){
+                let self = this;
+                  STORE.onChange(function(){
+                let updateState = STORE.getStoreData()
+                  self.setState(updateState);
+              })
+        },
+
 componentWillMount: function(){
         let self = this;
           STORE.onChange(function(){
@@ -40,7 +48,7 @@ render: function(){
 
         case "bandView":
             return <BandView/>
-            break;      
+            break;
       }
 
 module.exports = Dispatcher
@@ -48,9 +56,14 @@ module.exports = Dispatcher
 
 
 }
+        render: function(){
+              switch (this.props.routedFrom) {
+                case "splashPage":
+                      return <SignUpView/>
+                  break;
 
+              }
 
-}
-
+        }
 
 })

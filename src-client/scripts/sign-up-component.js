@@ -37,37 +37,37 @@ const SignUpView = React.createClass({
 
      render: function(){
          return (
-               <div className="container text-left login-page">
+               <div className="container login-page">
                  <div className="row">
                    <div className="column left-column col-xs-12 col-sm-6">
-                    <form className="sign-in" onSubmit={this._handleSignIn}>
-                       <h3>Sign In</h3>
-                         <input type="text" className="form-control" placeholder="Username" name="username"/>
-                           <br></br>
-                         <input type="text" className="form-control" placeholder="Password" name="password"/>
-                           <br></br>
-                           <i className="fa fa-spotify fa-2x" aria-hidden="true">Spotify</i>
-                           <i className="fa fa-facebook-square fa-2x" aria-hidden="true">Facebook</i>
-                            <br></br>
-                         <button className="text-center" type="submit">Sign In</button>
-                    </form>
-                  </div>
+                     <form className="sign-in" onSubmit={this._handleSignIn}>
+                       <h1 className="center">Sign In</h1>
+                       <input type="text" className="form-control" placeholder="Username" name="username"/>
+                       <br></br>
+                       <input type="text" className="form-control" placeholder="Password" name="password"/>
+                       <br></br>
+                       <button className="center btn waves-effect waves-light" type="submit">Sign In</button>
+                       <br></br>
+                       <i className="fa fa-4x fa-spotify center" aria-hidden="true"></i>
+                       <i className="fa fa-4x fa-facebook-square center" aria-hidden="true"></i>
+                     </form>
+                   </div>
 
 
-                 <div className="column right-column col-xs-12 col-sm-6">
-                 <form className="sign-up" onSubmit={this._handleSignUp}>
-                   <h3>Sign Up</h3>
-                     <input type="text" className="form-control" placeholder="First Name" name="firstName"/>
-                   <br></br>
-                     <input type="text" className="form-control" placeholder="Last Name" name="lastName"/>
-                   <br></br>
-                     <input type="text" className="form-control" placeholder="Email" name="email"/>
+                   <div className="column right-column col-xs-12 col-sm-6">
+                     <form className="sign-up" onSubmit={this._handleSignUp}>
+                       <h1 className ="center">Sign Up</h1>
+                       <input type="text" className="form-control" placeholder="First Name" name="firstName"/>
                        <br></br>
-                    <input type="text" className="form-control" placeholder="Username" name="username"/>
-                     <br></br>
-                     <input type="text" className="form-control" placeholder="Password" name="password"/>
+                       <input type="text" className="form-control" placeholder="Last Name" name="lastName"/>
                        <br></br>
-                   <button className="text-center" type="submit">Sign Up</button>
+                       <input type="text" className="form-control" placeholder="Email" name="email"/>
+                       <br></br>
+                       <input type="text" className="form-control" placeholder="Username" name="username"/>
+                       <br></br>
+                       <input type="text" className="form-control" placeholder="Password" name="password"/>
+                       <br></br>
+                       <button className="center btn waves-effect waves-light" type="submit">Sign Up</button>
                  </form>
                  </div>
                </div>

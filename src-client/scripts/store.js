@@ -9,10 +9,8 @@ const STORE = {
     },
 
     setStore: function(storeProp, payload){
-
-
     this._data[storeProp] = payload
-    BackBone.Events.trigger('storeChange')
+    Backbone.Events.trigger('storeChange')
     },
 
     getStoreData: function(){
@@ -25,4 +23,6 @@ const STORE = {
     }
 }
 
-module.exports = STORE
+module.exports = {
+  STORE
+}
