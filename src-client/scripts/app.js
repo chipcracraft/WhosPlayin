@@ -5,10 +5,12 @@ const {fetchMetroData, fetchMetroConcerts, userMetro, metroConcerts} = require('
 const {HomeView, CardView } = require('./main-view');
 const SignUpView = require('./sign-up-component.js');
 const SplashPageView = require('./component-splash.js');
+const BandView = require('./band-view.js');
 
 
 const AppRouter = Backbone.Router.extend({
   routes: {
+    "bandinfo" : "showBandPage",
     "home" : "showHomePage",
     "signup": "showSignUpPage",
     "*path": "showSplashPage"
@@ -23,6 +25,10 @@ const AppRouter = Backbone.Router.extend({
   },
   showSignUpPage: function(){
     ReactDOM.render(<SignUpView />, document.querySelector('#app-container'));
+  },
+
+  showBandPage: function(){
+    ReactDOM.render(<BandView/>, document.querySelector('#app-container'));
   },
 
   initialize: function(){
