@@ -18,6 +18,7 @@ import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -30,7 +31,7 @@ public class WhosPlayinRestController {
 
 
     public final String API_KEY = "YlX4r2ab8xzzlYDB";
-//    public final String LOCATION = "Charleston,SC";
+
 
     @Autowired
     BandRepo bands;
@@ -149,8 +150,8 @@ public class WhosPlayinRestController {
 
     // REQUEST LOCATION
 
-    @RequestMapping(path = "/{location}", method = RequestMethod.GET)
-    public HashMap getLocation(@PathVariable("location") String location) {
+    @RequestMapping(path = "/location/{location}", method = RequestMethod.GET)
+    public ResponseEntity <Integer>  getLocation(@PathVariable("location") String location) {
         String request = "http://api.songkick.com/api/3.0/search/locations.json?";
 
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(request)
@@ -161,14 +162,18 @@ public class WhosPlayinRestController {
         HashMap search = query.getForObject(builder.build().encode().toUri(), HashMap.class);
         HashMap resultsPage = (HashMap) search.get("resultsPage");
         HashMap results = (HashMap) resultsPage.get("results");
-        return results;
+        ArrayList locationA = (ArrayList) results.get("location");
+        HashMap info =  (HashMap) locationA.get(0);
+        HashMap metroArea = (HashMap) info.get("metroArea");
+        int metroAreaId = (int) metroArea.get("id");
+        return new ResponseEntity<Integer>(metroAreaId, HttpStatus.OK);
     }
 
 
     // REQUEST ALL EVENTS BASED OFF OF AREA ID
 
     @RequestMapping(path = "/events-calendar/{areaId}", method = RequestMethod.GET)
-    public HashMap getEvents(@PathVariable("areaId") int areaId){
+    public ResponseEntity<ArrayList> getEvents(@PathVariable("areaId") int areaId){
 
         String request = "http://api.songkick.com/api/3.0/metro_areas/" + areaId + "/calendar.json";
 
@@ -178,8 +183,9 @@ public class WhosPlayinRestController {
         RestTemplate query = new RestTemplate();
         HashMap search = query.getForObject(builder.build().encode().toUri(), HashMap.class);
         HashMap resultsPage = (HashMap) search.get("resultsPage");
+        ArrayList events = (ArrayList) resultsPage.get("events");
 
-        return resultsPage;
+        return new ResponseEntity<ArrayList>(events, HttpStatus.OK);
     }
 
     // SEARCH FOR ARTISTS
