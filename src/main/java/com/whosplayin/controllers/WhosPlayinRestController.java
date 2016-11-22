@@ -31,6 +31,7 @@ public class WhosPlayinRestController {
     // {latitude: 32.7799225, longitude: -79.9343825}
 
     public final String API_KEY = "YlX4r2ab8xzzlYDB";
+//    public final String LOCATION = "Charleston,SC";
 
     @Autowired
     BandRepo bands;
@@ -145,105 +146,32 @@ public class WhosPlayinRestController {
 
     // REQUEST LOCATION
 
-//    @RequestMapping(path = "/location", method = RequestMethod.GET)
-//    public void getLocation (){
-//        String longitude =
-//    }
-//
-//
-//    @RequestMapping(path = "/search/{location}", method = RequestMethod.GET)
-//    public ArrayList<HashMap> getVenues(@PathVariable("location") String location) {
-//        String request = "http://api.songkick.com/api/3.0/search/locations.json";
-//
-//        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(request)
-//                .queryParam("query", location)
-//                .queryParam("apikey", API_KEY)
-//                .queryParam("per_page", 10);
-//
-//        RestTemplate query = new RestTemplate();
-//        HashMap search = query.getForObject(builder.build().encode().toUri(), HashMap.class);
-//        HashMap resultsPage = (HashMap) search.get("resultsPage");
-//        HashMap results = (HashMap) resultsPage.get("results");
-//
-//        ArrayList<HashMap> locations = (ArrayList<HashMap>) results.get("locations");
-//
-//        return locations;
-//    }
-//
-//    @RequestMapping(path = "/search/{location}", method = RequestMethod.GET)
-//    public ArrayList<HashMap> getVenues(@PathVariable("location") String location) {
-//        String request = "http://api.songkick.com/api/3.0/search/locations.json";
-//
-//        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(request)
-//                .queryParam("query", location)
-//                .queryParam("apikey", API_KEY)
-//                .queryParam("per_page", 10);
-//
-//        RestTemplate query = new RestTemplate();
-//        HashMap search = query.getForObject(builder.build().encode().toUri(), HashMap.class);
-//        HashMap resultsPage = (HashMap) search.get("resultsPage");
-//        HashMap results = (HashMap) resultsPage.get("results");
-//
-//        ArrayList<HashMap> locations = (ArrayList<HashMap>) results.get("locations");
-//
-//        return locations;
-//    }
-//
-//    @RequestMapping(path = "/search/{location}", method = RequestMethod.GET)
-//    public ArrayList<HashMap> getVenues(@PathVariable("location") String location) {
-//        String request = "http://api.songkick.com/api/3.0/search/locations.json";
-//
-//        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(request)
-//                .queryParam("query", location)
-//                .queryParam("apikey", API_KEY)
-//                .queryParam("per_page", 10);
-//
-//        RestTemplate query = new RestTemplate();
-//        HashMap search = query.getForObject(builder.build().encode().toUri(), HashMap.class);
-//        HashMap resultsPage = (HashMap) search.get("resultsPage");
-//        HashMap results = (HashMap) resultsPage.get("results");
-//
-//        ArrayList<HashMap> locations = (ArrayList<HashMap>) results.get("locations");
-//
-//        return locations;
-//    }
-//
-//    @RequestMapping(path = "/search/{location}", method = RequestMethod.GET)
-//    public ArrayList<HashMap> getVenues(@PathVariable("location") String location) {
-//        String request = "http://api.songkick.com/api/3.0/search/locations.json";
-//
-//        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(request)
-//                .queryParam("query", location)
-//                .queryParam("apikey", API_KEY)
-//                .queryParam("per_page", 10);
-//
-//        RestTemplate query = new RestTemplate();
-//        HashMap search = query.getForObject(builder.build().encode().toUri(), HashMap.class);
-//        HashMap resultsPage = (HashMap) search.get("resultsPage");
-//        HashMap results = (HashMap) resultsPage.get("results");
-//
-//        ArrayList<HashMap> locations = (ArrayList<HashMap>) results.get("locations");
-//
-//        return locations;
-//    }
-//
-//    @RequestMapping(path = "/search/{location}", method = RequestMethod.GET)
-//    public ArrayList<HashMap> getVenues(@PathVariable("location") String location) {
-//        String request = "http://api.songkick.com/api/3.0/search/locations.json";
-//
-//        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(request)
-//                .queryParam("query", location)
-//                .queryParam("apikey", API_KEY)
-//                .queryParam("per_page", 10);
-//
-//        RestTemplate query = new RestTemplate();
-//        HashMap search = query.getForObject(builder.build().encode().toUri(), HashMap.class);
-//        HashMap resultsPage = (HashMap) search.get("resultsPage");
-//        HashMap results = (HashMap) resultsPage.get("results");
-//
-//        ArrayList<HashMap> locations = (ArrayList<HashMap>) results.get("locations");
-//
-//        return locations;
-//    }
+    @RequestMapping(path = "/{location}", method = RequestMethod.GET)
+    public HashMap getLocation(@PathVariable("location") String location) {
+        String request = "http://api.songkick.com/api/3.0/search/locations.json?";
 
+        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(request)
+                .queryParam("query", location)
+                .queryParam("apikey", API_KEY);
+
+        RestTemplate query = new RestTemplate();
+        HashMap search = query.getForObject(builder.build().encode().toUri(), HashMap.class);
+        HashMap resultsPage = (HashMap) search.get("resultsPage");
+        return resultsPage;
+    }
+//
+    @RequestMapping(path = "/events-calendar/{areaId}", method = RequestMethod.GET)
+    public HashMap getEvents(@PathVariable("areaId") int areaId){
+
+        String request = "http://api.songkick.com/api/3.0/metro_areas/" + areaId + "/calendar.json";
+
+        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(request)
+                .queryParam("apikey", API_KEY);
+
+        RestTemplate query = new RestTemplate();
+        HashMap search = query.getForObject(builder.build().encode().toUri(), HashMap.class);
+        HashMap resultsPage = (HashMap) search.get("resultsPage");
+
+        return resultsPage;
+    }
 }
