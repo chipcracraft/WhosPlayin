@@ -23,14 +23,14 @@ const hamburgerStyle = {
   top: 10,
 }
 
-const schema = {
-  bandName:
-  trackName:
-  dateTime:
-  trackSet:
-  /*trackset is for a spotify playlist populated
-  by unique trackIDs separated by semicolons*/
-}
+// const schema = {
+//   bandName:
+//   trackName:
+//   dateTime:
+//   trackSet:
+//   /*trackset is for a spotify playlist populated
+//   by unique trackIDs separated by semicolons*/
+// }
 
 const HomeView = React.createClass({
   render: function(){

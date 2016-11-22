@@ -4,15 +4,13 @@ const ACTIONS = require('./actions.js')
 
 
 const SplashPageView = React.createClass({
-   _handleClick: function(evt){
+   _handleSubmit: function(evt){
       evt.preventDefault()
 
-      const getLocation = navigator.geolocation.getCurrentPosition(function(position) {
+      const locationObj = evt.target.location.value
 
-         const locationObj = {latitude: position.coords.latitude, longitude: position.coords.longitude}
-
-         ACTIONS._captureLocation(locationObj)
-      })
+      console.log(locationObj)
+      ACTIONS._captureLocation(locationObj)
 
    },
 
@@ -31,10 +29,11 @@ const SplashPageView = React.createClass({
          <h2>SIGN UP</h2>
       </div>
 
-         <div className="splash-top">
+         <form className="form-group splash-top" onSubmit={this._handleSubmit}>
             <h1>Find Bands Playing Near You!</h1>
-            <div onClick={this._handleClick} className="listen-button">Listen</div>
-         </div>
+               <input type="text" className="form-control" placeholder="Where you at fool?" name="location"/>
+               <button type="submit" className="listen-button">Listen</button>
+         </form>
 
          <div className="splash-bottom">
 

@@ -9,11 +9,11 @@ const getLocation = navigator.geolocation.getCurrentPosition(function(position) 
   return {latitude: position.coords.latitude, longitude: position.coords.longitude};
 });
 
-ACTIONS._captureLocation(getLocation)
-
-$.getJSON("http://api.songkick.com/api/3.0/search/locations.json?location=clientip&apikey=YlX4r2ab8xzzlYDB").then(function(data){
-  console.log(data)
-});
+// ACTIONS._captureLocation(getLocation)
+//
+// $.getJSON("http://api.songkick.com/api/3.0/search/locations.json?location=clientip&apikey=YlX4r2ab8xzzlYDB").then(function(data){
+//   console.log(data)
+// });
 
 const fetchMetroData = function(){
   request('http://api.songkick.com/api/3.0/search/locations.json?location=geo:' + userLocation + '&apikey=YlX4r2ab8xzzlYDB', function (error, response, body) {
