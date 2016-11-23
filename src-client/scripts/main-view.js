@@ -23,14 +23,14 @@ const hamburgerStyle = {
   top: 10,
 }
 
-const schema = {
-  bandName:
-  trackName:
-  dateTime:
-  trackSet:
-  /*trackset is for a spotify playlist populated
-  by unique trackIDs separated by semicolons*/
-}
+// const schema = {
+//   bandName:
+//   trackName:
+//   dateTime:
+//   trackSet:
+//   /*trackset is for a spotify playlist populated
+//   by unique trackIDs separated by semicolons*/
+// }
 
 const HomeView = React.createClass({
   render: function(){
@@ -38,13 +38,13 @@ const HomeView = React.createClass({
             <div className="main-container" style={mainStyle}>
               <a href="/login">log in</a>
               {/* <Login /> */}
-              <i className="fa fa-bars fa-4x hamburger" aria-hidden="true" style={hamburgerStyle}></i>
+              {/* <i className="fa fa-bars fa-4x hamburger" aria-hidden="true" style={hamburgerStyle}></i> */}
               <div className="row center">
                 <CardView />
               </div>
               <footer className="page-footer">
                 <div className="row">
-                  <div className="col l3 s3">
+                  <div className="col l4 s12">
                     <div className="container">
                       <div className="controls">
                         <div className="container">
@@ -54,10 +54,10 @@ const HomeView = React.createClass({
                       </div>
                     </div>
                   </div>
-                  <div className="col l5 s8">
-                    <h6 className="white-text">wow a progress bar here</h6>
+                  <div className="col l4 s12">
+                    <h1 className="white-text">wow a progress bar here</h1>
                   </div>
-                  <div className="col l4 s10">
+                  <div className="col l4 s12">
                     <ul>
                       <li><a className="grey-text text-lighten-3 right" href="#!">{this.props.bandname}</a></li>
                       <br></br>
