@@ -85,7 +85,7 @@ const CardView = React.createClass({
               <h6>{this.props.datetime}</h6>
             </div>
             <div className="cta">
-              <iframe src="https://embed.spotify.com/?uri=spotify:trackset:WOWILOVEMEMES:3LX0Qc1iKkqLZP0FijjLmI,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" frameBorder="0" allowTransparency="true"></iframe>
+              <iframe src="https://embed.spotify.com/?uri=spotify:trackset:WOWTESTTESTTEST:4uLU6hMCjMI75M1A2tKUQC,3LX0Qc1iKkqLZP0FijjLmI,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" frameBorder="0" allowTransparency="true"></iframe>
               <a href="/band-view">view full playlist</a>
             </div>
           </div>

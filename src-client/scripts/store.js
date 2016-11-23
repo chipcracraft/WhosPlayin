@@ -3,7 +3,7 @@ const React = require('react');
 const Backbone = require('backbone');
 
 const STORE = {
-    _data : {
+    _data: {
       currentViewSetting: '',
       currentSongs: []
     },
