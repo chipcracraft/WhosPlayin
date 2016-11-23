@@ -3,26 +3,23 @@ const React = require('react');
 const Backbone = require('backbone');
 
 const STORE = {
-    _data : {
+    _data: {
       currentViewSetting: '',
       currentSongs: []
     },
 
     setStore: function(storeProp, payload){
-    this._data[storeProp] = payload
-    Backbone.Events.trigger('storeChange')
+      this._data[storeProp] = payload
+      Backbone.Events.trigger('storeChange')
     },
 
     getStoreData: function(){
-       return this._data
+      return this._data
     },
 
     onChange: function(changeStore){
-        Backbone.Events.on('storeChange', someFunc)
-
+      Backbone.Events.on('storeChange', someFunc)
     }
 }
 
-module.exports = {
-  STORE
-}
+module.exports = STORE
