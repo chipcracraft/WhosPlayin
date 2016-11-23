@@ -37,24 +37,27 @@ const SignUpView = React.createClass({
 
      render: function(){
          return (
-               <div className="container login-page">
+               <div className="main-container login-page">
                  <div className="row">
-                   <div className="column left-column col-xs-12 col-sm-6">
+                   <div className="column left-column col s12 m6">
                      <form className="sign-in" onSubmit={this._handleSignIn}>
                        <h1 className="center">Sign In</h1>
                        <input type="text" className="form-control" placeholder="Username" name="username"/>
                        <br></br>
                        <input type="text" className="form-control" placeholder="Password" name="password"/>
                        <br></br>
-                       <button className="center btn waves-effect waves-light" type="submit">Sign In</button>
+                        <div className="social-media col s12 m6">
+                       <i className="fa fa-4x fa-spotify center" aria-hidden="true">Spotify</i>
                        <br></br>
-                       <i className="fa fa-4x fa-spotify center" aria-hidden="true"></i>
-                       <i className="fa fa-4x fa-facebook-square center" aria-hidden="true"></i>
+                       <i className="fa fa-4x fa-facebook-square center" aria-hidden="true">Facebook</i>
+                       </div>
+                       <button className="center sign-btn btn waves-effect waves-light" type="submit">Sign In</button>
+                       <br></br>
                      </form>
                    </div>
 
 
-                   <div className="column right-column col-xs-12 col-sm-6">
+                   <div className="column right-column col s12 m6">
                      <form className="sign-up" onSubmit={this._handleSignUp}>
                        <h1 className ="center">Sign Up</h1>
                        <input type="text" className="form-control" placeholder="First Name" name="firstName"/>
@@ -67,7 +70,7 @@ const SignUpView = React.createClass({
                        <br></br>
                        <input type="text" className="form-control" placeholder="Password" name="password"/>
                        <br></br>
-                       <button className="center btn waves-effect waves-light" type="submit">Sign Up</button>
+                       <button className="center signUp-btn btn waves-effect waves-light" type="submit">Sign Up</button>
                  </form>
                  </div>
                </div>

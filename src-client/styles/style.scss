@@ -24,10 +24,21 @@ font-family: 'Abel', sans-serif;
 }
 
 
-button {
-	background-color: #6A3066;
-	margin-left: 30%;
-	padding: 2% 17%;
+// button {
+// 	background-color: #6A3066;
+// 	margin-left: 30%;
+// 	padding: 2% 17%;
+// }
+.sign-btn {
+	position: absolute;
+	left: 21%;
+	bottom: 30%;
+}
+
+.signUp-btn{
+	position: relative;
+	left: 46%;
+	margin-bottom: 5%;
 }
 
 input .form-control {
@@ -39,6 +50,7 @@ input .form-control {
 .fa {
 	line-height: 50px;
 	padding: 10%;
+	font-size: 2em;
 }
 
 
