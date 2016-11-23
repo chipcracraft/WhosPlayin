@@ -1,80 +1,30 @@
 @import "../../node_modules/font-awesome/scss/font-awesome.scss";
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-
+// this is a shitshow!
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 }
-
 body{
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: 'Raleway', Helvetica, sans-serif;
 	height: 100%;
 	background-position: center;
 }
-
-
-
-.login-page {
-color: white;
-background: #e96443; /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #e96443 , #904e95); /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #e96443 , #904e95); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-font-family: 'Abel', sans-serif;
+h1 h2 h3 h4 h5 h6 {
+	font-family: 'Abel', sans-serif;
 }
-
-
+span {
+	font-style: italic;
+}
 button {
 	background-color: #6A3066;
 	margin-left: 30%;
 	padding: 2% 17%;
 }
-
-input .form-control {
-	// opacity: 0.7;
-	color: white;
+p {
+	line-height: 16px;
 }
-
-
-.fa {
-	line-height: 50px;
-	padding: 10%;
-}
-
-
-.splash-container {
-	.splash-title {
-		position: absolute;
-		top: 10px;
-		left: 20px;
-	}
-
-	.splash-login {
-		position: absolute;
-		top: 10px;
-		right: 20px;
-	}
-}
-	.splash-top {
-		background-color: #F5F5F5;
-		height: 300px;
-		text-align: center;
-		padding-top: 150px;
-
-		.listen-button {
-			border: 1px solid black;
-			width: 50px;
-			margin: auto;
-		}
-	}
-
-	.splash-bottom {
-		height: 300px;
-		background-image: url("http://cache.gawkerassets.com/assets/images/9/2008/12/no_doubt_rock_band.jpg");
-		background-size: cover;
-	}
-
-
 footer {
 	position: relative;
 	margin-top: -180px;
@@ -85,9 +35,22 @@ footer {
   background: -o-linear-gradient(right, #e96443, #904e95);
   background: linear-gradient(to left, #e96443, #904e95); /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+input .form-control {
+	// opacity: 0.7;
+	color: white;
+}
+
 #app-container {
 	min-height: 100%;
-
+	.fa {
+		line-height: 50px;
+		padding: 10%;
+	}
+	.band-image img {
+		height: 350px;
+		width: 425px;
+	}
 	.card {
 		max-width: 25%;
 		width: 20%;
@@ -95,16 +58,44 @@ footer {
 	.hamburger {
 		color: #f5f5f5;
 	}
+	.login-page {
+		color: white;
+		background: #e96443; /* fallback for old browsers */
+		background: -webkit-linear-gradient(to left, #e96443 , #904e95); /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to left, #e96443 , #904e95); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	}
+	.splash-container {
+		.splash-title {
+			position: absolute;
+			top: 10px;
+			left: 20px;
+		}
+		.splash-login {
+			position: absolute;
+			top: 10px;
+			right: 20px;
+		}
+		.splash-top {
+			background-color: #F5F5F5;
+			height: 300px;
+			text-align: center;
+			padding-top: 150px;
+			.listen-button {
+				border: 1px solid black;
+				width: 50px;
+				margin: auto;
+			}
+		}
+		.splash-bottom {
+			height: 300px;
+			background-image: url("http://cache.gawkerassets.com/assets/images/9/2008/12/no_doubt_rock_band.jpg");
+			background-size: cover;
+		}
+	}
 }
 
-.band-image img {
-	height: 350px;
-	width: 425px;
-}
 
-span {
-	font-style: italic;
-}
+
 
 // sticky footer
 // body {
