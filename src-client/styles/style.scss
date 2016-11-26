@@ -7,17 +7,17 @@
 	padding: 0;
 }
 body{
-	font-family: 'Raleway', Helvetica, sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	height: 100%;
-	background-position: center;
+	// background-position: center;
+	// sticky footer
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
 h1 h2 h3 h4 h5 h6 {
-	font-family: 'Abel', sans-serif;
+	font-family: 'Signika', sans-serif;
 }
-span {
-	font-style: italic;
-}
-
 footer {
 	position: relative;
 	margin-top: -180px;
@@ -28,21 +28,29 @@ footer {
   background: -o-linear-gradient(right, #e96443, #904e95);
   background: linear-gradient(to left, #e96443, #904e95); /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
-input .form-control {
+input.form-control {
 	// opacity: 0.7;
 	color: white;
+	font-size: 20px;
 }
-
 #app-container {
+	flex: 1 0 auto;
 	min-height: 100%;
-	.fa {
-		line-height: 50px;
-		padding: 10%;
-	}
+	// .fa {
+	// 	line-height: 50px;
+	// 	padding: 10%;
+	// }
 	.band-image img {
 		height: 350px;
 		width: 425px;
+		margin-bottom: 3%;
+	}
+	.band-title {
+		margin-bottom: 3%;
+		font-size: 42px;
+		span {
+			font-family: 'Signika', sans-serif;
+		}
 	}
 	.card {
 		max-width: 25%;
@@ -86,16 +94,3 @@ input .form-control {
 		}
 	}
 }
-
-
-
-
-// sticky footer
-// body {
-// 	display: flex;
-// 	min-height: 100vh;
-// 	flex-direction: column;
-// }
-//
-// main {
-// 	flex: 1 0 auto;
