@@ -20,6 +20,7 @@ import java.sql.SQLException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 
 /**
@@ -148,9 +149,8 @@ public class WhosPlayinRestController {
         users.delete(validUser);
     }
 
-    // REQUEST LOCATION
-
-    @RequestMapping(path = "/location/{location}", method = RequestMethod.GET)
+    // REQUEST LOCATION AS A STRING -- GRAB METROID
+    @RequestMapping(path = "/location={location}", method = RequestMethod.GET)
     public ResponseEntity <Integer>  getLocation(@PathVariable("location") String location) {
         String request = "http://api.songkick.com/api/3.0/search/locations.json?";
 
@@ -170,7 +170,6 @@ public class WhosPlayinRestController {
     }
 
     // REQUEST ALL EVENTS BASED OFF OF AREA ID
-
     @RequestMapping(path = "/events-calendar/{areaId}", method = RequestMethod.GET)
     public ResponseEntity<ArrayList> getEvents(@PathVariable("areaId") int areaId){
 
@@ -189,19 +188,17 @@ public class WhosPlayinRestController {
     }
 
     // COMBINES ABOVE METHODS TO RUN SUCCINCTLY
-    // call interger from method and return the event with id inserted
-
+        // call integer from method and return the event with id inserted
     @RequestMapping(path = "/whosplayin/{location}", method = RequestMethod.GET)
     public ResponseEntity<ArrayList> whosplayin(@PathVariable ("location") String location){
         int metroAreaId = getLocation(location).getBody();
         return getEvents(metroAreaId);
     }
 
-
     // SEARCH FOR ARTISTS
 
-    @RequestMapping(path = "/search-artists/{artist}", method = RequestMethod.GET)
-    public HashMap getArtist(@PathVariable("artist") String artist){
+    @RequestMapping(path = "/whosplayin/search/artist={artist}", method = RequestMethod.GET)
+    public ResponseEntity<HashMap> getArtist(@PathVariable("artist") String artist){
 
         String request = "http://api.songkick.com/api/3.0/search/artists.json?";
 
@@ -214,17 +211,37 @@ public class WhosPlayinRestController {
         HashMap resultsPage = (HashMap) search.get("resultsPage");
         HashMap results = (HashMap) resultsPage.get("results");
 
-        return results;
+        return new ResponseEntity<HashMap>(results, HttpStatus.OK);
     }
 
-    // SEARCH FOR VENUES BASED ON LOCATION
+    // SEE ARTISTS CALENDAR
+//197928
+    @RequestMapping(path = "/whosplayin/calendar/{artistId}", method = RequestMethod.GET)
+    public ResponseEntity<ArrayList> getArtistId(@PathVariable("artistId") int artistId){
 
-    @RequestMapping(path = "/search-venues/{location}", method = RequestMethod.GET)
-    public HashMap getVenues(@PathVariable("location") String location) {
+        String request = "http://api.songkick.com/api/3.0/artists/" + artistId +"/calendar.json";
+        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(request)
+                .queryParam("apikey", API_KEY);
+
+        RestTemplate query = new RestTemplate();
+        HashMap search = query.getForObject(builder.build().encode().toUri(), HashMap.class);
+        HashMap resultsPage = (HashMap) search.get("resultsPage");
+        HashMap results = (HashMap) resultsPage.get("results");
+        ArrayList events = (ArrayList) results.get("event");
+
+        return new ResponseEntity<ArrayList>(events, HttpStatus.OK);
+
+    }
+
+
+    // SEARCH FOR VENUES
+
+    @RequestMapping(path = "/whosplayin/search/venue={venue}", method = RequestMethod.GET)
+    public ResponseEntity<HashMap> getVenues(@PathVariable("venue") String venue) {
         String request = "http://api.songkick.com/api/3.0/search/venues.json";
 
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(request)
-                .queryParam("query", location)
+                .queryParam("query", venue)
                 .queryParam("apikey", API_KEY);
 
         RestTemplate query = new RestTemplate();
@@ -232,7 +249,12 @@ public class WhosPlayinRestController {
         HashMap resultsPage = (HashMap) search.get("resultsPage");
         HashMap results = (HashMap) resultsPage.get("results");
 
-        return results;
+        return new ResponseEntity<HashMap>(results, HttpStatus.OK);
     }
 
+    // SEE CALENDAR OF THIS VENUE
+
+
+
+    // SEE RELATED ARTISTS
 }
