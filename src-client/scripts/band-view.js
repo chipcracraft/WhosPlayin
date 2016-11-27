@@ -20,7 +20,7 @@ const BandView = React.createClass ({
                         </div>
                       </div>
                       <div className="right-column col-xs-12 col-sm-6">
-                        <iframe src="https://embed.spotify.com/?uri=spotify:user:erebore:playlist:788MOXyTfcUb1tdw4oC7KJ&theme=white" width="500" height="640" frameborder="0" allowtransparency="true"></iframe>
+                        <iframe src="https://embed.spotify.com/?uri=spotify:user:erebore:playlist:788MOXyTfcUb1tdw4oC7KJ&theme=white" width="500" height="640" frameBorder="0" allowTransparency="true"></iframe>
                       </div>
 
                     </div>
