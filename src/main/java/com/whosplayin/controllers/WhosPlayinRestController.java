@@ -62,10 +62,7 @@ public class WhosPlayinRestController {
 
 
 
-
-
     // sign-up for a WhosPlayin account
-
     @RequestMapping(path = "/sign-up", method = RequestMethod.POST)
     public ResponseEntity<User> addUser (HttpSession session, @RequestBody User user) throws PasswordStorage.CannotPerformOperationException, PasswordStorage.InvalidHashException {
         User validUsername = users.findFirstByUsername(user.getUsername());
@@ -81,7 +78,6 @@ public class WhosPlayinRestController {
     }
 
     // sign-in for WhosPlayin account
-
     @RequestMapping(path = "/sign-in", method = RequestMethod.POST)
     public User signIn (HttpSession session, @RequestBody User user) throws Exception {
         User aUser = users.findFirstByUsername(user.getUsername());
@@ -97,14 +93,12 @@ public class WhosPlayinRestController {
     }
 
     // sign-out of WhosPlayin account
-
     @RequestMapping(path = "/sign-out", method = RequestMethod.POST)
     public void signOut(HttpSession session){
         session.invalidate();
     }
 
     // displays the signed- (in) user for WhosPlayin
-
     @RequestMapping("/get-account")
     public User getUser(HttpSession session) throws Exception {
         String username = (String) session.getAttribute("username");
@@ -117,7 +111,6 @@ public class WhosPlayinRestController {
 
 
     // edit or update account information for WhosPlayin
-
     @RequestMapping(path = "/edit-account", method = RequestMethod.POST)
     public void editAccount (HttpSession session, @RequestBody User user) throws Exception {
         String username = (String) session.getAttribute("username");
@@ -138,7 +131,6 @@ public class WhosPlayinRestController {
     }
 
     // DELETE WHOSPLAYIN ACCOUNT
-
     @RequestMapping(path = "/delete-account", method = RequestMethod.POST)
     public void deleteAccount (HttpSession session, @RequestBody User user) throws Exception {
         String username = (String) session.getAttribute("username");
@@ -196,9 +188,8 @@ public class WhosPlayinRestController {
     }
 
     // SEARCH FOR ARTISTS
-
     @RequestMapping(path = "/whosplayin/search/artist={artist}", method = RequestMethod.GET)
-    public ResponseEntity<HashMap> getArtist(@PathVariable("artist") String artist){
+    public ResponseEntity<Integer> getArtistId (@PathVariable("artist") String artist){
 
         String request = "http://api.songkick.com/api/3.0/search/artists.json?";
 
@@ -210,14 +201,17 @@ public class WhosPlayinRestController {
         HashMap search = query.getForObject(builder.build().encode().toUri(), HashMap.class);
         HashMap resultsPage = (HashMap) search.get("resultsPage");
         HashMap results = (HashMap) resultsPage.get("results");
+        ArrayList artistA = (ArrayList) results.get("artist");
+        HashMap info = (HashMap) artistA.get(0);
+        int artistId = (int) info.get("id");
 
-        return new ResponseEntity<HashMap>(results, HttpStatus.OK);
+        return new ResponseEntity<Integer>(artistId, HttpStatus.OK);
     }
 
     // SEE ARTISTS CALENDAR
-//197928
+        // 197928 Coldplay
     @RequestMapping(path = "/whosplayin/calendar/{artistId}", method = RequestMethod.GET)
-    public ResponseEntity<ArrayList> getArtistId(@PathVariable("artistId") int artistId){
+    public ResponseEntity<ArrayList> getArtistCalendar(@PathVariable("artistId") int artistId){
 
         String request = "http://api.songkick.com/api/3.0/artists/" + artistId +"/calendar.json";
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(request)
@@ -230,14 +224,19 @@ public class WhosPlayinRestController {
         ArrayList events = (ArrayList) results.get("event");
 
         return new ResponseEntity<ArrayList>(events, HttpStatus.OK);
-
     }
 
+    // COMBINE BOTH ARTIST METHODS TO GET ARTIST CALENDAR
+        // USE ARTISTID TO RETURN CALENDAR WITH ARTIST INSERTED
+    @RequestMapping(path = "/whosplayin/{artist}=calendar", method = RequestMethod.GET)
+    public ResponseEntity<ArrayList> artistCalendar(@PathVariable("artist") String artist){
+        int artistId = getArtistId(artist).getBody();
+        return getArtistCalendar(artistId);
+    }
 
     // SEARCH FOR VENUES
-
     @RequestMapping(path = "/whosplayin/search/venue={venue}", method = RequestMethod.GET)
-    public ResponseEntity<HashMap> getVenues(@PathVariable("venue") String venue) {
+    public ResponseEntity<Integer> getVenueId (@PathVariable("venue") String venue) {
         String request = "http://api.songkick.com/api/3.0/search/venues.json";
 
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(request)
@@ -248,13 +247,35 @@ public class WhosPlayinRestController {
         HashMap search = query.getForObject(builder.build().encode().toUri(), HashMap.class);
         HashMap resultsPage = (HashMap) search.get("resultsPage");
         HashMap results = (HashMap) resultsPage.get("results");
+        ArrayList venueA = (ArrayList) results.get("venue");
+        HashMap info = (HashMap) venueA.get(0);
+        int venueId = (int) info.get("id");
 
-        return new ResponseEntity<HashMap>(results, HttpStatus.OK);
+        return new ResponseEntity<Integer>(venueId, HttpStatus.OK);
     }
 
     // SEE CALENDAR OF THIS VENUE
+    @RequestMapping(path = "/whosplayin/calendar={venueId}", method = RequestMethod.GET)
+    public ResponseEntity<ArrayList> getVenueCalendar(@PathVariable("venueId") int venueId){
 
+        String request = "http://api.songkick.com/api/3.0/venues/" + venueId +"/calendar.json";
+        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(request)
+                .queryParam("apikey", API_KEY);
 
+        RestTemplate query = new RestTemplate();
+        HashMap search = query.getForObject(builder.build().encode().toUri(), HashMap.class);
+        HashMap resultsPage = (HashMap) search.get("resultsPage");
+        HashMap results = (HashMap) resultsPage.get("results");
+        ArrayList events = (ArrayList) results.get("event");
 
-    // SEE RELATED ARTISTS
+        return new ResponseEntity<ArrayList>(events, HttpStatus.OK);
+    }
+
+    // COMBINE ABOVE METHODS TO VIEW CALENDAR OF EVENTS FOR SPECIFIC VENUE
+        // GRAB VENUEID AND RETURN IT FOR THE CALENDAR
+    @RequestMapping(path = "/whosplayin/{venue}=upcoming-events", method = RequestMethod.GET)
+    public ResponseEntity<ArrayList> venueCalendar (@PathVariable("venue") String venue){
+        int venueId = getVenueId(venue).getBody();
+        return getVenueCalendar(venueId);
+    }
 }
