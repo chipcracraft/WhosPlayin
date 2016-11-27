@@ -11,7 +11,7 @@ const BandView = React.createClass ({
           render: function(){
               return (
                   <div className="container band-info">
-                    <h1 className="band-title">Interpol<span>Turn On The Bright Lights</span></h1>
+                    <h1 className="band-title">Interpol  <span>Turn On The Bright Lights</span></h1>
                     <div className="row">
                       <div className="left-column col sm6 md6 lg6">
                         <div className="band-image">
@@ -20,7 +20,7 @@ const BandView = React.createClass ({
                         </div>
                       </div>
                       <div className="right-column col sm6 md6 lg6">
-                        <iframe src="https://embed.spotify.com/?uri=spotify:user:erebore:playlist:788MOXyTfcUb1tdw4oC7KJ&theme=white" width="500" height="640" frameBorder="0" allowTransparency="true"></iframe>
+                        <iframe src="https://embed.spotify.com/?uri=spotify:user:erebore:playlist:788MOXyTfcUb1tdw4oC7KJ" width="500" height="640" frameBorder="0" allowTransparency="true"></iframe>
                       </div>
                     </div>
                   </div>
