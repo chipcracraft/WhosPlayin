@@ -5,7 +5,6 @@ import fakeMetroID from 'fakemetroid'
 and gets the top 5 most popular tracks for all artists*/
 const artistMetadata = function(){
   let artistID = this.
-  let emptyArr = []
   $.get('https://api.spotify.com/v1/artists/'+ artistID +'/top-tracks', function(){
 
   });
