@@ -2,7 +2,25 @@ import $ from 'jquery'
 import http from 'http'
 import request from 'request'
 import ACTIONS from './actions.js'
+// console.log(userIP);
 
+import Spotify from 'spotify-web-api-js'
+
+const seatGeekGeo = function(){
+  $.getJSON('https://api.seatgeek.com/2/events?geoip='+ userIP +'&range=20mi').then(function(res){
+    console.log(res);
+    const artistID = this.performers.links.id
+  });
+}
+
+const spotifyTracks = function(){
+  s.getArtistTopTracks('5wVc58a2hRj76nbaCKwlDt', function(res){
+    console.log(res)
+  })
+  $.getJSON('https://api.spotify.com/v1/artists/'+ artistID +'/top-tracks').then(function(res){
+    console.log(res);
+  });
+}
 
 const getLocation = navigator.geolocation.getCurrentPosition(function(position) {
   console.log(position.coords.latitude, position.coords.longitude);
@@ -41,9 +59,12 @@ const fetchMetroConcerts = function(){
 }
 
 module.exports = {
-  getLocation
+  getLocation,
+  seatGeekGeo,
+  spotifyTracks
 }
 
+var s = new Spotify();
 /* yeah i know this is a random style object in a completely different file - j*/
 
 // signUpStyle = {

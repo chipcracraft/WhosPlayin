@@ -53,6 +53,7 @@
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-tap-event-plugin": "^2.0.1",
-    "request": "^2.79.0"
+    "request": "^2.79.0",
+    "spotify-web-api-js": "^0.21.1"
   }
 }
