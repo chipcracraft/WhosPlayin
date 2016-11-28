@@ -5,7 +5,7 @@ import ACTIONS from './actions.js'
 // console.log(userIP);
 
 import Spotify from 'spotify-web-api-js'
-
+let self = this
 const seatGeekGeo = function(){
   $.getJSON('https://api.seatgeek.com/2/events?geoip='+ userIP +'&range=20mi').then(function(res){
     console.log(res);
@@ -65,8 +65,3 @@ module.exports = {
 }
 
 var s = new Spotify();
-/* yeah i know this is a random style object in a completely different file - j*/
-
-// signUpStyle = {
-//   backgroundImage: url("https://unsplash.it/g/1000/1000")
-// }
