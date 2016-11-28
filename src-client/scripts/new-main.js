@@ -41,7 +41,7 @@ const CardView = React.createClass({
   render: function(){
     return (
         <div className="col s12 m4">
-          <div className="card">
+          <div className="card z-depth-4">
             <div className="card-content black-text">
               <div className="card-image">
                 <img src="https://unsplash.it/200/?random"></img>

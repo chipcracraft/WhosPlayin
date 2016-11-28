@@ -6,6 +6,7 @@ const SignUpView = require('./sign-up-component.js');
 const SplashPageView = require('./component-splash.js');
 const BandView = require('./band-view.js');
 const MainView = require('./new-main.js');
+import Spotify from 'spotify-web-api-js'
 
 const AppRouter = Backbone.Router.extend({
   routes: {
@@ -34,5 +35,8 @@ const AppRouter = Backbone.Router.extend({
     Backbone.history.start();
   }
 })
-
+// s.getArtistTopTracks('5wVc58a2hRj76nbaCKwlDt', function(res){
+//   console.log(res)
+// })
+// const s = new Spotify();
 new AppRouter()
