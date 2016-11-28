@@ -42,7 +42,7 @@ render: function(){
             break;
 
 
-        case  "signUpView":
+        case "signUpView":
               return <SplashPageView/>
               break;
 
