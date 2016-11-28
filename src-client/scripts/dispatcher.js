@@ -2,8 +2,9 @@ const React = require('react');
 const STORE = require('./store.js');
 const ACTIONS = require('./actions.js');
 
-const MainView = require('./main-view.js');
+const MainView = require('./new-main.js');
 const BandView = require('./band-view.js');
+const SplashPageView = require('./component-splash.js');
 const SignUpView = require('./sign-up-component.js')
 
 
@@ -12,58 +13,36 @@ const Dispatcher = React.createClass({
           STORE.setStore('currentSongs', [])
 
           let startingState = STORE.getStoreData()
-          return startingState;
+          return startingState
         },
 
         componentWillMount: function(){
-                let self = this;
+                let self = this
                   STORE.onChange(function(){
                 let updateState = STORE.getStoreData()
-                  self.setState(updateState);
+                  self.setState(updateState)
               })
         },
 
-componentWillMount: function(){
-        let self = this;
-          STORE.onChange(function(){
-        let updateState = STORE.getStoreData()
-          self.setState(updateState);
-      })
-},
+         render: function(){
+               switch (this.props.routedFrom){
+                  case "SplashPageView":
+                     return <SplashPageView/>
+                     break;
 
-render: function(){
-      switch (this.props.routedFrom) {
-        case "splashPage":
-              return <SignUpView/>
-          break;
+                  case "MainView":
+                     return <MainView/>
+                     break;
 
-        case "homePage":
-            return <HomeView signInData={this.state.signInData}/>
-            break;
+                  case "SignUpView":
+                     return <SignUpView/>
+                     break;
 
-
-        case "signUpView":
-              return <SplashPageView/>
-              break;
-
-        case "bandView":
-            return <BandView/>
-            break;
-      }
+                  case "BandView":
+                     return <BandView/>
+                     break;
+               }
+            }
+})
 
 module.exports = Dispatcher
-
-
-
-}
-        render: function(){
-              switch (this.props.routedFrom) {
-                case "splashPage":
-                      return <SignUpView/>
-                  break;
-
-              }
-
-        }
-
-})

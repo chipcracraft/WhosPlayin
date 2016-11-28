@@ -17,33 +17,41 @@ const ACTIONS = {
       },
 
       _signInUser: function(userObj){
-            console.log(userObj)
            let userMod = new UserModel("/sign-in")
            userMod.set(userObj)
-           console.log(userMod)
 
          userMod.save().then(function(serverRes){
-            console.log(serverRes)
+            STORE.setStore('currentUser', serverRes)
             window.location.hash = "home"
+         })
+      },
+
+      _signOutUser: function(){
+           let userMod = new UserModel("/sign-out")
+
+         userMod.save().then(function(){
+            window.location.hash = ""
          })
       },
 
       _captureLocation: function(locationObj){
          console.log(locationObj)
-         let locationMod = new UserModel("/location")
-         locationMod.set(locationObj)
+         STORE.setStore('location', locationObj)
+         window.location.hash = "home"
 
-         locationMod.save().then(function(serverRes){
-            console.log(serverRes)
-            window.location.hash = "home"
-         })
+         // let locationMod = new UserModel("/location")
+         // locationMod.set(locationObj)
+
+         // locationMod.save().then(function(serverRes){
+         //    console.log(serverRes)
+         //    window.location.hash = "home"
+         // })
       },
 
       _getUser: function(queryObj){
          const authenticateUser = new UserModel("/get-account")
          authenticateUser.fetch().then(function(serverRes){
-            console.log(serverRes)
-            // STORE.setStore('currentTodos', todoColl.models )
+            STORE.setStore('currentUser', serverRes)
          })
 
       }
