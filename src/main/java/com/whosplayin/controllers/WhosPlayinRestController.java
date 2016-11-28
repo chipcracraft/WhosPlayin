@@ -79,7 +79,7 @@ public class WhosPlayinRestController {
 
     // sign-in for WhosPlayin account
     @RequestMapping(path = "/sign-in", method = RequestMethod.POST)
-    public User signIn (HttpSession session, @RequestBody User user) throws Exception {
+    public ResponseEntity<User> signIn (HttpSession session, @RequestBody User user) throws Exception {
         User aUser = users.findFirstByUsername(user.getUsername());
         if(aUser == null){
             throw new Exception("Username doesn't exist! Please Sign-Up!");
@@ -88,8 +88,7 @@ public class WhosPlayinRestController {
             throw new Exception("Oops - incorrect password! Try again!");
         }
         session.setAttribute("username", user.getUsername());
-
-        return aUser;
+        return new ResponseEntity<User>(aUser, HttpStatus.OK);
     }
 
     // sign-out of WhosPlayin account
@@ -100,15 +99,14 @@ public class WhosPlayinRestController {
 
     // displays the signed- (in) user for WhosPlayin
     @RequestMapping("/get-account")
-    public User getUser(HttpSession session) throws Exception {
+    public User getUser(HttpSession session) {
         String username = (String) session.getAttribute("username");
         User inUser = users.findFirstByUsername(username);
         if (inUser == null) {
-            throw new Exception("Oops! Either you're not signed-in or you need to sign-up!");
+            return null;
         }
         return inUser;
     }
-
 
     // edit or update account information for WhosPlayin
     @RequestMapping(path = "/edit-account", method = RequestMethod.POST)
@@ -187,12 +185,29 @@ public class WhosPlayinRestController {
         return getEvents(metroAreaId);
     }
 
-    // SEARCH FOR ARTISTS
+    // RETURNS ARRAY OF ARTISTS FOR JORDAN
     @RequestMapping(path = "/whosplayin/search/artist={artist}", method = RequestMethod.GET)
-    public ResponseEntity<Integer> getArtistId (@PathVariable("artist") String artist){
+    public ResponseEntity<ArrayList> getArtistArray (@PathVariable("artist") String artist){
 
         String request = "http://api.songkick.com/api/3.0/search/artists.json?";
 
+        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(request)
+                .queryParam("query", artist)
+                .queryParam("apikey", API_KEY);
+
+        RestTemplate query = new RestTemplate();
+        HashMap search = query.getForObject(builder.build().encode().toUri(), HashMap.class);
+        HashMap resultsPage = (HashMap) search.get("resultsPage");
+        HashMap results = (HashMap) resultsPage.get("results");
+        ArrayList artistA = (ArrayList) results.get("artist");
+        return new ResponseEntity<ArrayList>(artistA, HttpStatus.OK);
+    }
+
+    // SEARCH FOR ARTIST ID
+    @RequestMapping(path = "/whosplayin/id=artist={artist}", method = RequestMethod.GET)
+    public ResponseEntity<Integer> getArtistId (@PathVariable("artist") String artist){
+
+        String request = "http://api.songkick.com/api/3.0/search/artists.json?";
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(request)
                 .queryParam("query", artist)
                 .queryParam("apikey", API_KEY);
@@ -222,12 +237,12 @@ public class WhosPlayinRestController {
         HashMap resultsPage = (HashMap) search.get("resultsPage");
         HashMap results = (HashMap) resultsPage.get("results");
         ArrayList events = (ArrayList) results.get("event");
-
         return new ResponseEntity<ArrayList>(events, HttpStatus.OK);
     }
 
-    // COMBINE BOTH ARTIST METHODS TO GET ARTIST CALENDAR
-        // USE ARTISTID TO RETURN CALENDAR WITH ARTIST INSERTED
+//     COMBINE BOTH ARTIST METHODS TO GET ARTIST CALENDAR
+//         USE ARTISTID TO RETURN CALENDAR WITH ARTIST INSERTED
+
     @RequestMapping(path = "/whosplayin/{artist}=calendar", method = RequestMethod.GET)
     public ResponseEntity<ArrayList> artistCalendar(@PathVariable("artist") String artist){
         int artistId = getArtistId(artist).getBody();
