@@ -17,30 +17,28 @@ const fetchBackEnd = function(userInputLocation = 'Columbia'){
   //   return res.responseJSON
   // });
 }
-
+let eventsListNames = 'lil wayne'
 // input variable into spotify query
-const fetchArtists = function(res){
+const fetchArtists = function(){
   console.log(`artist list fetched`);
   return $.ajax({
-    url: 'https://api.spotify.com/v1/search?q=${eventsListNames}&type=artist',
+    url: `https://api.spotify.com/v1/search?q=${eventsListNames}&type=artist`,
     method: `GET`
   });
 }
-const artistSpotifyID = artists.items[0].uri
-const artistImg = artists.items[0].images[2]
+// const artistSpotifyID = artists.items[0].uri
+// const artistImg = artists.items[0].images[2]
 // fetchBackEnd.map(fetchArtists);
 
 // render top track URIs into iframe
-const fetchTopTracks = function(){
-
-  s.getArtistTopTracks('5wVc58a2hRj76nbaCKwlDt', function(res){
-    console.log(res);  // a var will go ^ here
-    return res
-  });
-}
+// const fetchTopTracks = function(){
+//   s.getArtistTopTracks('55Aa2cqylxrFIXC767Z865').then( function(res) {
+//     console.log(`res3:`, res);
+//   )}
+// }
 
 module.exports = {
   fetchBackEnd,
   fetchArtists,
-  fetchTopTracks
+  // fetchTopTracks
 }
