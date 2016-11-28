@@ -1,10 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {
-  fetchBackEnd,
-  fetchArtists,
-  fetchTopTracks
-} from './test.js'
+import {fetchBackEnd,
+        fetchArtists,
+        fetchTopTracks } from './test.js'
 
 
 const ACTIONS = require('./actions.js')
@@ -12,10 +10,19 @@ const ACTIONS = require('./actions.js')
 
 const MainView = React.createClass({
   componentWillMount: function() {
-    let stuff = fetchBackEnd('Asheville')
-    stuff.then(function(res){
+    let locationDataReq = fetchBackEnd('Asheville')
+    locationDataReq.then(function(res){
       console.log('res', res);
-    });
+
+      let artistListReq = fetchArtists();
+      artistListReq.then(function(res){
+        console.log('res2', res);
+
+      })
+    })
+    // let eventsListNames = performance[0]
+    // console.log(eventsListNames);
+
   },
 
   _logoutHandler: function(){
