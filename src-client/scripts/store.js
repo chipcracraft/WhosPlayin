@@ -5,7 +5,9 @@ const Backbone = require('backbone');
 const STORE = {
     _data: {
       currentViewSetting: '',
-      currentSongs: []
+      currentSongs: [],
+      currentUser: {},
+      location: ''
     },
 
     setStore: function(storeProp, payload){
@@ -17,7 +19,7 @@ const STORE = {
       return this._data
     },
 
-    onChange: function(changeStore){
+    onChange: function(someFunc){
       Backbone.Events.on('storeChange', someFunc)
     }
 }

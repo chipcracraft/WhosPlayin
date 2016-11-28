@@ -4,6 +4,10 @@ import {fetchBackEnd,
         fetchArtists,
         fetchTopTracks } from './test.js'
 
+
+const ACTIONS = require('./actions.js')
+
+
 const MainView = React.createClass({
   componentWillMount: function() {
     let locationDataReq = fetchBackEnd('Asheville')
@@ -20,6 +24,11 @@ const MainView = React.createClass({
     // console.log(eventsListNames);
 
   },
+
+  _logoutHandler: function(){
+    ACTIONS._signOutUser()
+  },
+
   render: function(){
     return (
       <div className="wrapper">
@@ -34,7 +43,12 @@ const MainView = React.createClass({
             <div className="nav-wrapper">
               <a href="#!" className="brand-logo center">whosplayin</a>
               <ul className="right hide-on-med-and-down">
+
+                <li><a href="/#signup">Login</a></li>
+                <li><a href="/#" onClick={this._logoutHandler}>Logout</a></li>
+
                 <li><a href="#signup">Login</a></li>
+
                 <li><a href="#ok">home</a></li>
                 <li><a className="dropdown-button" data-activates="dropdown1">Dropdown<i className="fa fa-chevron-down" aria-hidden="true"></i></a></li>
               </ul>

@@ -4,6 +4,9 @@ const ACTIONS = require('./actions.js')
 
 
 const SplashPageView = React.createClass({
+   componentWillMount: function(){
+   },
+
    _handleSubmit: function(evt){
       evt.preventDefault()
 
@@ -32,7 +35,7 @@ const SplashPageView = React.createClass({
          <form className="form-group splash-top" onSubmit={this._handleSubmit}>
             <h1>Find Bands Playing Near You!</h1>
                <input type="text" className="form-control location-input" placeholder="Location" name="location"/>
-               <button type ="submit" className="center listen-button btn waves-effect waves-light"><a href="#home">Listen</a></button>
+               <button type ="submit" className="center listen-button btn waves-effect waves-light"><a>Listen</a></button>
 
          </form>
 

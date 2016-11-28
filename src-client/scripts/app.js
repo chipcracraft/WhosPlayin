@@ -7,6 +7,8 @@ const BandView = require('./band-view.js');
 const MainView = require('./new-main.js');
 import Spotify from 'spotify-web-api-js'
 
+const Dispatcher = require('./dispatcher.js');
+
 const AppRouter = Backbone.Router.extend({
   routes: {
     "bandinfo" : "showBandPage",
@@ -17,17 +19,17 @@ const AppRouter = Backbone.Router.extend({
   },
 
   showHomePage: function(){
-    ReactDOM.render(<MainView />, document.querySelector("#app-container"));
+    ReactDOM.render(<Dispatcher routedFrom="MainView"/>, document.querySelector("#app-container"));
   },
   showSplashPage: function(){
-    ReactDOM.render(<SplashPageView />, document.querySelector("#app-container"));
+    ReactDOM.render(<Dispatcher routedFrom="SplashPageView"/>, document.querySelector("#app-container"));
   },
   showSignUpPage: function(){
-    ReactDOM.render(<SignUpView />, document.querySelector('#app-container'));
+    ReactDOM.render(<Dispatcher routedFrom="SignUpView"/>, document.querySelector('#app-container'));
   },
 
   showBandPage: function(){
-    ReactDOM.render(<BandView/>, document.querySelector('#app-container'));
+    ReactDOM.render(<Dispatcher routedFrom="BandView"/>, document.querySelector('#app-container'));
   },
 
   initialize: function(){
