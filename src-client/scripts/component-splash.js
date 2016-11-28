@@ -31,8 +31,8 @@ const SplashPageView = React.createClass({
 
          <form className="form-group splash-top" onSubmit={this._handleSubmit}>
             <h1>Find Bands Playing Near You!</h1>
-               <input type="text" className="form-control" placeholder="Where you at fool?" name="location"/>
-               <button type="submit" className="listen-button">Listen</button>
+               <input type="text" className="form-control location-input" placeholder="Location" name="location"/>
+               <button type="submit" className="listen-button"><a href="#home">Listen</a></button>
          </form>
 
          <div className="splash-bottom">
