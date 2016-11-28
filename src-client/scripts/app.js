@@ -1,10 +1,7 @@
 const ReactDOM = require('react-dom');
 const React = require('react');
 const Backbone = require('backbone');
-const SignUpView = require('./sign-up-component.js');
-const SplashPageView = require('./component-splash.js');
-const BandView = require('./band-view.js');
-const MainView = require('./new-main.js');
+
 import Spotify from 'spotify-web-api-js'
 
 const Dispatcher = require('./dispatcher.js');
