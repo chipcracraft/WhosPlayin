@@ -1,7 +1,6 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 
-
 const BandView = React.createClass ({
 
   _bandInfo: function(){
@@ -20,7 +19,7 @@ const BandView = React.createClass ({
           </div>
           <div className="right-column col s6 m6 l6">
             <p className="band-descript">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-            
+
           </div>
         </div>
 
