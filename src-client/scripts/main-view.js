@@ -1,40 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Backbone from 'backbone';
-// import AppBar from 'material-ui/AppBar';
-// import IconButton from 'material-ui/IconButton';
-// import IconMenu from 'material-ui/IconMenu';
-// import MenuItem from 'material-ui/MenuItem';
-// import FlatButton from 'material-ui/FlatButton';
-// import Toggle from 'material-ui/Toggle';
-// import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-// import NavigationClose from 'material-ui/svg-icons/navigation/close';
-
-const mainStyle = {
-  background: '#222',
-  overflow: 'auto',
-  paddingBottom: '180px',
-}
-
-const hamburgerStyle = {
-  color: '#f5f5f5',
-  position: 'fixed',
-  right: 10,
-  top: 10,
-}
-
-// const schema = {
-//   bandName: wow,
-//   trackName: wow,
-//   dateTime: wow,
-
-//   bandName:
-//   trackName:
-//   dateTime:
-//   trackSet:
-//   /*trackset is for a spotify playlist populated
-//   by unique trackIDs separated by semicolons*/
-// }
+import Spotify from 'spotify-web-api-js'
 
 const HomeView = React.createClass({
   render: function(){
@@ -97,62 +64,5 @@ const CardView = React.createClass({
     );
   }
 });
-// let muiName = ''
-// class Login extends Component {
-//   static muiName = 'FlatButton';
-//
-//   render: function(){
-//     return (
-//       <FlatButton {...this.props} label="Login" />
-//     );
-//   }
-// }
-//
-// const Logged = (props) => (
-//   <IconMenu
-//     {...props}
-//     iconButtonElement={
-//       <IconButton><MoreVertIcon /></IconButton>
-//     }
-//     targetOrigin={{horizontal: 'right', vertical: 'top'}}
-//     anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-//   >
-//     <MenuItem primaryText="Refresh" />
-//     <MenuItem primaryText="Help" />
-//     <MenuItem primaryText="Sign out" />
-//   </IconMenu>
-// );
-//
-// Logged.muiName = 'IconMenu';
 
-// class AppBarExampleComposition extends Component {
-//   state = {
-//     logged: true,
-//   };
-//
-//   handleChange = (event, logged) => {
-//     this.setState({logged: logged});
-//   };
-//
-//   render() {
-//     return (
-//       <div>
-//         <Toggle
-//           label="Logged"
-//           defaultToggled={true}
-//           onToggle={this.handleChange}
-//           labelPosition="right"
-//           style={{margin: 20}}
-//         />
-//         <AppBar
-//           title="Title"
-//           iconElementLeft={<IconButton><NavigationClose /></IconButton>}
-//           iconElementRight={this.state.logged ? <Logged /> : <Login />}
-//         />
-//       </div>
-//     );
-//   }
-// }
-
-// export default AppBarExampleComposition;
 module.exports = {HomeView, CardView}
