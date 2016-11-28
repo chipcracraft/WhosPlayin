@@ -1,7 +1,6 @@
 const ReactDOM = require('react-dom');
 const React = require('react');
 const Backbone = require('backbone');
-const {fetchMetroData, fetchMetroConcerts, userMetro, metroConcerts} = require('./node-queries.js')
 import Spotify from 'spotify-web-api-js'
 
 const Dispatcher = require('./dispatcher.js');
