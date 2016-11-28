@@ -98,7 +98,7 @@ public class WhosPlayinRestController {
     }
 
     // displays the signed- (in) user for WhosPlayin
-    @RequestMapping("/get-account")
+    @RequestMapping(path = "/get-account", method = RequestMethod.GET)
     public User getUser(HttpSession session) {
         String username = (String) session.getAttribute("username");
         User inUser = users.findFirstByUsername(username);
