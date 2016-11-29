@@ -25,13 +25,18 @@ const Dispatcher = React.createClass({
         },
 
          render: function(){
+          //  if(!this.state.currentArtist.length < 1){
+          //    return (
+          //      <p>loadinnn</p>
+          //           )
+          //  }
                switch (this.props.routedFrom){
                   case "SplashPageView":
                      return <SplashPageView/>
                      break;
 
                   case "MainView":
-                     return <MainView currentUser={this.state.currentUser}/>
+                     return <MainView currentUser={this.state.currentUser} currentArtist={this.state.currentArtist}/>
                      break;
 
                   case "SignUpView":
@@ -39,7 +44,7 @@ const Dispatcher = React.createClass({
                      break;
 
                   case "BandView":
-                     return <BandView/>
+                     return <BandView currentArtist={this.state.currentArtist}/>
                      break;
                }
             }

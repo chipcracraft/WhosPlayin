@@ -34,6 +34,17 @@ const ACTIONS = {
          })
       },
 
+      // setTopTracks: function(){
+      //   let coll = new TopTrackColl()
+      //
+      //   coll.fetch().then(function(){
+      //
+      //     let bigStr = coll.join(",")
+      //     STORE.setStore("currentArtist", bigStr)
+      //   }
+      //
+      // },
+
       _captureLocation: function(locationObj){
          console.log(locationObj)
          STORE.setStore('location', locationObj)

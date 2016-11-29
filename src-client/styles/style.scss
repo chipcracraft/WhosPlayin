@@ -54,6 +54,9 @@ a:hover, a:visited, a:link, a:active{
 	.view-full-band {
 		color: #222;
 	}
+	a {
+				color: #222;
+	}
 	.band-title {
 		margin-bottom: 3%;
 		font-size: 42px;
@@ -100,18 +103,14 @@ a:hover, a:visited, a:link, a:active{
 			padding-top: 150px;
 			.listen-button {
 				border: 1px solid black;
-				// width: 50px;
-				margin: auto;
+				margin-left: 41%;
+				width: 15%;
 			}
 		}
 		.splash-bottom {
 			height: 300px;
-			background-image: url("http://cache.gawkerassets.com/assets/images/9/2008/12/no_doubt_rock_band.jpg");
+			background-image: url("../images/2435649-0965498946-rockb.jpg");
 			background-size: cover;
 		}
 	}
-}
-.location-input {
-
-
 }

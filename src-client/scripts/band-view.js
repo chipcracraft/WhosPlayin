@@ -8,6 +8,7 @@ const BandView = React.createClass ({
   },
 
   render: function(){
+     console.log(this.props.currentArtist)
     return (
       <div className="container band-info">
         <nav>
