@@ -9,12 +9,7 @@ import {fetchBackEnd,
 
 const ACTIONS = require('./actions.js')
 
-// componentDidMount() {
-//     var element = ReactDOM.findDOWNode(this.refs.dropdown)
-//     let(element).ready(function(){
-//       let('select').material_select();
-//     });
-// }
+
 
 const MainView = React.createClass({
   componentWillMount: function() {
@@ -61,19 +56,13 @@ const MainView = React.createClass({
       <div className="wrapper">
         <div className="hero">
           <div className="input-field">
-          <select ref="dropdown" defaultValue="1">
-             <option value="" disabled> Choose your option</option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
-            </select>
-            <label>Materialize Select</label>
+
           </div>
           <nav>
             <div className="nav-wrapper">
               <a href="#!" className="brand-logo center">whosplayin</a>
               <ul className="right hide-on-med-and-down">
-
+              
                 <li><a>Hello {this.props.currentUser.firstName}</a></li>
                 <li><a href="/#" onClick={this._logoutHandler}>Logout</a></li>
                 <li><a href="#ok">home</a></li>
@@ -106,7 +95,7 @@ const CardView = React.createClass({
             <div className="cta">
               {/* <iframe src="https://embed.spotify.com/?uri=spotify:playlist:788MOXyTfcUb1tdw4oC7KJ" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> */}
               <iframe src="https://embed.spotify.com/?uri=spotify:trackset:countrymusicisthebest:51265tsBntG5gAcOBMvBeD,4uLU6hMCjMI75M1A2tKUQC,3LX0Qc1iKkqLZP0FijjLmI,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" frameBorder="0" allowTransparency="true"></iframe>
-              <a href="#bandinfo" className="center view-full-band">view full playlist</a>
+              <a href="#bandinfo" className="center view-full-band">More Info</a>
             </div>
           </div>
         </div>

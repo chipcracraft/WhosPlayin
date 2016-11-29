@@ -46,11 +46,6 @@ const SignUpView = React.createClass({
                        <br></br>
                        <input type="text" className="form-control" placeholder="Password" name="password"/>
                        <br></br>
-                       <div className="social-media col s12 m6">
-                         <i className="fa fa-4x fa-spotify center" aria-hidden="true">Spotify</i>
-                         <br></br>
-                         <i className="fa fa-4x fa-facebook-square center" aria-hidden="true">Facebook</i>
-                       </div>
                        <button className="center sign-btn btn waves-effect waves-light" type="submit">Sign In</button>
                        <br></br>
                      </form>
