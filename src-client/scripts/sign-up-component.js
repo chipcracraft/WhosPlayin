@@ -29,7 +29,8 @@ const SignUpView = React.createClass({
             lastName: evt.target.lastName.value,
             email: evt.target.email.value,
             username: evt.target.username.value,
-            password: evt.target.password.value
+            password: evt.target.password.value,
+            city: evt.target.location.value
          }
 
          ACTIONS._signUpUser(newUserObj)
@@ -69,6 +70,8 @@ const SignUpView = React.createClass({
                        <input type="text" className="form-control" placeholder="Username" name="username"/>
                        <br></br>
                        <input type="text" className="form-control" placeholder="Password" type="password" name="password" id="password" maxLength="32"/>
+                       <br></br>
+                       <input type="text" className="form-control" placeholder="Location" name="location"/>
                        <br></br>
                        <button className="center signUp-btn btn waves-effect waves-light" type="submit">Sign Up</button>
                  </form>

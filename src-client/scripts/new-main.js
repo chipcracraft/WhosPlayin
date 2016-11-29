@@ -17,9 +17,17 @@ let fak = ''
 //     });
 // }
 
+
 const MainView = React.createClass({
   componentWillMount: function() {
-    let locationDataReq = fetchBackEnd('Asheville');
+    ACTIONS._getUser()
+   //  if(!this.props.currentUser.city){
+   //    return(
+   //      <p>loadddinnn</p>
+   //    )
+   //  }
+    let locationDataReq = fetchBackEnd(this.props.currentUser.city);
+
     locationDataReq.then(function(res){
       console.log('res1', res);
 
@@ -88,8 +96,7 @@ const MainView = React.createClass({
             <div className="nav-wrapper">
               <a href="#!" className="brand-logo center">whosplayin</a>
               <ul className="right hide-on-med-and-down">
-                <li><a>Hello {this.props.currentUser.firstName}</a></li>
-                <li><a href="#ok">Home</a></li>
+                <li><a href="#ok">Hello {this.props.currentUser.city}</a></li>
                 <li><a href="/#" onClick={this._logoutHandler}>Logout</a></li>
               </ul>
             </div>
@@ -104,9 +111,11 @@ const MainView = React.createClass({
 });
 
 
+
 // let musicShitString = ''
 // console.log(musicShitString);
  // console.log(this.props.currentArtist)
+
 
 const CardView = React.createClass({
 
