@@ -50,6 +50,7 @@ const MainView = React.createClass({
   },
 
   render: function(){
+     console.log(this.props.currentUser)
     return (
       <div className="wrapper">
         <div className="hero">
@@ -64,11 +65,8 @@ const MainView = React.createClass({
               <a href="#!" className="brand-logo center">whosplayin</a>
               <ul className="right hide-on-med-and-down">
 
-                <li><a href="/#signup">Login</a></li>
+                <li><a>Hello {this.props.currentUser.firstName}</a></li>
                 <li><a href="/#" onClick={this._logoutHandler}>Logout</a></li>
-
-                <li><a href="#signup">Login</a></li>
-
                 <li><a href="#ok">home</a></li>
                 <li><a className="dropdown-button" data-activates="dropdown1">Dropdown<i className="fa fa-chevron-down" aria-hidden="true"></i></a></li>
               </ul>

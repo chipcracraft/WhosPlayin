@@ -31,7 +31,7 @@ const Dispatcher = React.createClass({
                      break;
 
                   case "MainView":
-                     return <MainView/>
+                     return <MainView currentUser={this.state.currentUser}/>
                      break;
 
                   case "SignUpView":
