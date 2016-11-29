@@ -8,6 +8,7 @@ const BandView = React.createClass ({
   },
 
   render: function(){
+     console.log(this.props.currentArtist)
     return (
       <div className="container band-info">
         <h1 className="band-title">Interpol</h1>

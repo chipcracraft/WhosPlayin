@@ -7,7 +7,8 @@ const STORE = {
       currentViewSetting: '',
       currentSongs: [],
       currentUser: {},
-      location: ''
+      location: '',
+      currentArtist: []
     },
 
     setStore: function(storeProp, payload){
