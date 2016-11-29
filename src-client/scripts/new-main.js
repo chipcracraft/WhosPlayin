@@ -8,6 +8,12 @@ import {fetchBackEnd,
 
 const ACTIONS = require('./actions.js')
 
+// componentDidMount() {
+//     var element = ReactDOM.findDOWNode(this.refs.dropdown)
+//     let(element).ready(function(){
+//       let('select').material_select();
+//     });
+// }
 
 const MainView = React.createClass({
   componentWillMount: function() {
@@ -50,12 +56,15 @@ const MainView = React.createClass({
     return (
       <div className="wrapper">
         <div className="hero">
-          <ul id="dropdown1" className="dropdown-content">
-            <li><a href="#!">one</a></li>
-            <li><a href="#!">two</a></li>
-            <li className="divider"></li>
-            <li><a href="#!">three</a></li>
-          </ul>
+          <div className="input-field">
+          <select ref="dropdown" defaultValue="1">
+             <option value="" disabled> Choose your option</option>
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+              <option value="3">Option 3</option>
+            </select>
+            <label>Materialize Select</label>
+          </div>
           <nav>
             <div className="nav-wrapper">
               <a href="#!" className="brand-logo center">whosplayin</a>
