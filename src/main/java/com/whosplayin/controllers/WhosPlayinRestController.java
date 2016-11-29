@@ -1,8 +1,8 @@
 package com.whosplayin.controllers;
 
 import com.whosplayin.entities.User;
-import com.whosplayin.services.BandRepo;
-import com.whosplayin.services.EventRepo;
+
+
 import com.whosplayin.services.UserRepo;
 import com.whosplayin.utilities.PasswordStorage;
 import org.h2.tools.Server;
@@ -33,12 +33,6 @@ public class WhosPlayinRestController {
 
     public final String API_KEY = "YlX4r2ab8xzzlYDB";
 
-
-    @Autowired
-    BandRepo bands;
-
-    @Autowired
-    EventRepo events;
 
     @Autowired
     UserRepo users;
@@ -173,7 +167,6 @@ public class WhosPlayinRestController {
         HashMap resultsPage = (HashMap) search.get("resultsPage");
         HashMap results = (HashMap) resultsPage.get("results");
         ArrayList event = (ArrayList) results.get("event");
-
         return new ResponseEntity<ArrayList>(event, HttpStatus.OK);
     }
 
@@ -240,9 +233,8 @@ public class WhosPlayinRestController {
         return new ResponseEntity<ArrayList>(events, HttpStatus.OK);
     }
 
-//     COMBINE BOTH ARTIST METHODS TO GET ARTIST CALENDAR
-//         USE ARTISTID TO RETURN CALENDAR WITH ARTIST INSERTED
-
+        //     COMBINE BOTH ARTIST METHODS TO GET ARTIST CALENDAR
+            //   USE ARTISTID TO RETURN CALENDAR WITH ARTIST INSERTED
     @RequestMapping(path = "/whosplayin/{artist}=calendar", method = RequestMethod.GET)
     public ResponseEntity<ArrayList> artistCalendar(@PathVariable("artist") String artist){
         int artistId = getArtistId(artist).getBody();
