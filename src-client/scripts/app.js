@@ -24,7 +24,6 @@ const AppRouter = Backbone.Router.extend({
   showSignUpPage: function(){
     ReactDOM.render(<Dispatcher routedFrom="SignUpView"/>, document.querySelector('#app-container'));
   },
-
   showBandPage: function(){
     ReactDOM.render(<Dispatcher routedFrom="BandView"/>, document.querySelector('#app-container'));
   },
@@ -34,7 +33,7 @@ const AppRouter = Backbone.Router.extend({
   }
 })
 // s.getArtistTopTracks('5wVc58a2hRj76nbaCKwlDt', function(res){
-//   console.log(res)
+//   console.log(res);
 // })
 // const s = new Spotify();
 new AppRouter()
