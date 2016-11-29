@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import $ from 'jquery'
-
 import {fetchBackEnd,
         fetchArtist,
         fetchTopTracks } from './test.js'
@@ -27,22 +26,19 @@ const MainView = React.createClass({
       let spotifyTopTrackPromisesList = spotifyQueryResults.filter(function(promiseObj){
           return promiseObj[0].artists.items.length > 0
       }).map(function(promiseObj){
-          console.log(promiseObj)
+          console.log(promiseObj);
           return fetchTopTracks(promiseObj[0].artists.items[0].id)
       })
       return $.when(...spotifyTopTrackPromisesList);
     }).then(function(...topTrackResults){
       console.log(topTrackResults);
       topTrackResults.forEach( function(){
-        let artistToppers = topTrackResults["0"].tracks["0"].id.tracks["0"].id
-        console.log(artistToppers);
+        let artistTopTracks = topTrackResults["0"].tracks["0"].id.tracks["0"].id
+        console.log(artistTopTracks);
       });
-      let artistTracks = topTrackResults["1"]["0"].tracks["0"].id
-      console.log(artistTracks);
     })
     // let eventsListNames = performance[0]
     // console.log(eventsListNames);
-
   },
 
   _logoutHandler: function(){
@@ -64,7 +60,6 @@ const MainView = React.createClass({
             <div className="nav-wrapper">
               <a href="#!" className="brand-logo center">whosplayin</a>
               <ul className="right hide-on-med-and-down">
-
                 <li><a>Hello {this.props.currentUser.firstName}</a></li>
                 <li><a href="/#" onClick={this._logoutHandler}>Logout</a></li>
                 <li><a href="#ok">home</a></li>
@@ -95,8 +90,7 @@ const CardView = React.createClass({
               <h6>{this.props.datetime}</h6>
             </div>
             <div className="cta">
-              {/* <iframe src="https://embed.spotify.com/?uri=spotify:playlist:788MOXyTfcUb1tdw4oC7KJ" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> */}
-              <iframe src="https://embed.spotify.com/?uri=spotify:trackset:countrymusicisthebest:51265tsBntG5gAcOBMvBeD,4uLU6hMCjMI75M1A2tKUQC,3LX0Qc1iKkqLZP0FijjLmI,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" frameBorder="0" allowTransparency="true"></iframe>
+              <iframe src="https://embed.spotify.com/?uri=spotify:trackset:WhosPlayin:`+artistTopTracks`" frameBorder="0" allowTransparency="true"></iframe>
               <a href="#bandinfo" className="center view-full-band">view full playlist</a>
             </div>
           </div>
