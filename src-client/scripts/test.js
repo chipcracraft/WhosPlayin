@@ -21,6 +21,9 @@ const fetchArtist = function(artist){
     method: `GET`
   });
 }
+// const artistSpotifyID = artists.items[0].uri
+// const artistImg = artists.items[0].images[2]
+// fetchBackEnd.map(fetchArtists);
 
 // render top track URIs into iframe
 const fetchTopTracks = function(artistId){
