@@ -5,6 +5,7 @@ const ACTIONS = require('./actions.js')
 
 const SplashPageView = React.createClass({
    componentWillMount: function(){
+      console.log(this.props.currentUser)
    },
 
    _handleSubmit: function(evt){
