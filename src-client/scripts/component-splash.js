@@ -4,17 +4,10 @@ const ACTIONS = require('./actions.js')
 
 
 const SplashPageView = React.createClass({
-   componentWillMount: function(){
-      console.log(this.props.currentUser)
-   },
-
-   _handleSubmit: function(evt){
+   _handleClick: function(evt){
       evt.preventDefault()
 
-      const locationObj = evt.target.location.value
-
-      console.log(locationObj)
-      ACTIONS._captureLocation(locationObj)
+      window.location.hash='signup'
 
    },
 
@@ -30,15 +23,14 @@ const SplashPageView = React.createClass({
          <h2>WHOSPLAYIN</h2>
       </div>
       <div className="splash-login" onClick={this._signUp}>
-         <h2>SIGN UP</h2>
+         <h2>SIGN IN</h2>
       </div>
 
-         <form className="form-group splash-top" onSubmit={this._handleSubmit}>
+         <div className="splash-top">
             <h1>Find Bands Playing Near You!</h1>
-               <input type="text" className="form-control location-input" placeholder="Location" name="location"/>
-               <button type ="submit" className="center listen-button btn waves-effect waves-light"><a>Listen</a></button>
+            <h3 className="col-sm-6">Create an account to get started!</h3><button onClick={this._handleClick} className="col-sm-6 center listen-button btn waves-effect waves-light"><a>Sign Up</a></button>
 
-         </form>
+         </div>
 
          <div className="splash-bottom">
 

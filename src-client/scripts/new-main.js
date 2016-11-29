@@ -5,8 +5,9 @@ import {fetchBackEnd,
         fetchArtist,
         fetchTopTracks } from './test.js'
 
-
+const STORE = require('./store.js')
 const ACTIONS = require('./actions.js')
+const musicShit = []
 
 // componentDidMount() {
 //     var element = ReactDOM.findDOWNode(this.refs.dropdown)
@@ -38,10 +39,15 @@ const MainView = React.createClass({
       return $.when(...spotifyTopTrackPromisesList);
     }).then(function(...topTrackResults){
       console.log(topTrackResults);
-      topTrackResults.forEach( function(){
-        let artistTopTracks = topTrackResults["0"].tracks["0"].id.tracks["0"].id
+      console.log(topTrackResults.length)
+      // topTrackResults.forEach( function(){
+      for (var i = 0; i < topTrackResults.length; i++){
+        let artistTopTracks = topTrackResults[i]["0"].tracks["0"].id
         console.log(artistTopTracks);
-      });
+      //   STORE.setStore('currentArtist', artistTopTracks)
+      musicShit.push(artistTopTracks)
+
+      };
     })
     // let eventsListNames = performance[0]
     // console.log(eventsListNames);
@@ -99,7 +105,7 @@ const CardView = React.createClass({
               <h6>{this.props.datetime}</h6>
             </div>
             <div className="cta">
-              <iframe src="https://embed.spotify.com/?uri=spotify:trackset:WhosPlayin:`+artistTopTracks`" frameBorder="0" allowTransparency="true"></iframe>
+              <iframe src="https://embed.spotify.com/?uri=spotify:trackset:WhosPlayin:`+ musicShit`" frameBorder="0" allowTransparency="true"></iframe>
               <a href="#bandinfo" className="center view-full-band">view full playlist</a>
             </div>
           </div>

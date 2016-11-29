@@ -39,7 +39,7 @@ const Dispatcher = React.createClass({
                      break;
 
                   case "BandView":
-                     return <BandView/>
+                     return <BandView currentArtist={this.state.currentArtist}/>
                      break;
                }
             }
