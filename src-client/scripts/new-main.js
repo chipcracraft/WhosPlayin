@@ -79,8 +79,8 @@ const MainView = React.createClass({
           <nav>
             <div className="nav-wrapper">
                <form className="row change-location left" onSubmit={this._changeLocationSubmitHandler}>
-                  <input className="col-sm-6" type="text" name="city"></input>
-                  <button type="submit" className="col-sm-6 center location-btn btn waves-effect waves-light">Change Location</button>
+                  <button type="submit" className="col sm6 center location-btn btn waves-effect waves-light">Change Location</button>
+                  <input className="col sm6" type="text" name="city"></input>
                </form>
               <a href="#!" className="brand-logo center">whosplayin</a>
               <ul className="right hide-on-med-and-down">
