@@ -61,6 +61,16 @@ const ACTIONS = {
          // })
       },
 
+      _changeUserLocation: function(userNewLocationObj){
+           let userNewLocationMod = new UserModel("/edit-account")
+           userNewLocationMod.set(userNewLocationObj)
+
+           userNewLocationMod.save().then(function(serverRes){
+            STORE.setStore('currentUser', serverRes)
+            window.location.hash = "home"
+         })
+      },
+
       _getUser: function(queryObj){
          const authenticateUser = new UserModel("/get-account")
          authenticateUser.fetch().then(function(serverRes){

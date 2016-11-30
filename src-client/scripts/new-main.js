@@ -38,7 +38,15 @@ const MainView = React.createClass({
     }
   },
 
+  _changeLocationSubmitHandler: function(){
+     evt.preventDefault()
 
+     let userNewLocationObj = {
+        city: evt.target.city.value,
+     }
+
+     ACTIONS._changeUserLocation(userNewLocationObj)
+  },
 
   render: function(){
     if(!this.props.currentArtist){
@@ -63,6 +71,10 @@ const MainView = React.createClass({
           </div>
           <nav>
             <div className="nav-wrapper">
+               <form className="row change-location left" onSubmit={this._changeLocationSubmitHandler}>
+                  <input className="col-sm-6" type="text" value="Location" name="city"></input>
+                  <button type="submit" className="col-sm-6 center location-btn btn waves-effect waves-light">Change Location</button>
+               </form>
               <a href="#!" className="brand-logo center">whosplayin</a>
               <ul className="right hide-on-med-and-down">
 
