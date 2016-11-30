@@ -113,7 +113,7 @@ const CardView = React.createClass({
           <div className="card z-depth-4">
             <div className="card-content black-text">
               <div className="card-image">
-                <img src="https://unsplash.it/300/300/?random"></img>
+                <img src="https://unsplash.it/310/310/?random"></img>
               </div>
               <span className="card-title">{this.props.bandname}</span>
               <h6>{this.props.artistname}</h6>
@@ -123,7 +123,7 @@ const CardView = React.createClass({
 
               <iframe src={this.props.currentArtist} frameBorder="0" allowTransparency="true"></iframe>
               <script type='text/javascript' src='http://widget.bandsintown.com/javascripts/bit_widget.js'></script>
-              <a href="http://www.bandsintown.com/Susto" className="bit-widget-initializer bandsintown" data-artist="Small Black">Susto Tour Dates</a>
+              <a href="http://www.bandsintown.com/" className="bit-widget-initializer bandsintown" data-artist="Small Black">Upcoming Tour Dates</a>
             </div>
           </div>
         </div>
