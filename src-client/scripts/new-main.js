@@ -123,35 +123,4 @@ const MainView = React.createClass({
 });
 
 
-
-// let musicShitString = ''
-// console.log(musicShitString);
- // console.log(this.props.currentArtist)
-
-// this.props.artistArr[0].artists.items[0].images[1].url
-// const CardView = React.createClass({
-//
-//   render: function(){
-//      console.log()
-//      return (
-//         <div className="col xs12 s12 m4 lg3">
-//            <div className="card z-depth-4">
-//              <div className="card-content black-text">
-//                <div className="card-image">
-//                  <img src={this.props.artistArr}></img>
-//                </div>
-//                <span className="card-title"></span>
-//
-//              </div>
-//              <div className="cta">
-//
-//                <iframe src={this.props.currentArtist} frameBorder="0" allowTransparency="true"></iframe>
-//                <script type='text/javascript' src='http://widget.bandsintown.com/javascripts/bit_widget.js'></script>
-//                <a href="http://www.bandsintown.com/SmallBlack" className="bit-widget-initializer bandsintown" data-artist="Small Black">Susto Tour Dates</a>
-//              </div>
-//            </div>
-//         </div>
-//      );
-//   }
-// });
 module.exports = MainView
