@@ -11,7 +11,7 @@ _changeUserLocation: function(userNewLocationObj){
      let userNewLocationMod = new UserModel("/edit-account")
      userNewLocationMod.set(userNewLocationObj)
 
-   userNewLocationMod.save().then(function(serverRes){
+     userNewLocationMod.save().then(function(serverRes){
       STORE.setStore('currentUser', serverRes)
       window.location.hash = "home"
    })
@@ -20,7 +20,7 @@ _changeUserLocation: function(userNewLocationObj){
 
 // NEW BUTTON IN MAIN  & CLICKHANDLER
 
-<form className="sign-in" onSubmit={this._changeLocationSubmitHandler}>
+<form className="change-location" onSubmit={this._changeLocationSubmitHandler}>
    <input type="text" value="Location" name="city"></input>
    <button type="submit" className="center location-btn btn waves-effect waves-light">Change Location</button>
 </form>
