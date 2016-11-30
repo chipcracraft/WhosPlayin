@@ -39,7 +39,7 @@ const Dispatcher = React.createClass({
                      break;
 
                   case "MainView":
-                     return <MainView currentUser={this.state.currentUser} currentArtist={this.state.currentArtist}/>
+                     return <MainView currentUser={this.state.currentUser} artistArr={this.state.artistArr} currentArtist={this.state.currentArtist}/>
                      break;
 
                   case "SignUpView":
@@ -48,6 +48,10 @@ const Dispatcher = React.createClass({
 
                   case "BandView":
                      return <BandView currentArtist={this.state.currentArtist}/>
+                     break;
+
+                  case "CardView":
+                     return <CardView artistArr={this.state.artistArr}/>
                      break;
                }
             }

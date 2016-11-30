@@ -9,6 +9,7 @@ const STORE = {
       currentUser: {},
       location: '',
       currentArtist: '',
+      artistArr: []
     },
 
     setStore: function(storeProp, payload){

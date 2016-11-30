@@ -2,11 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 
-const STORE = require('./store.js')
-const ACTIONS = require('./actions.js')
+// const STORE = require('./store.js')
+import ACTIONS from './actions.js'
 
 
-
+let bigStr = ''
 // componentDidMount() {
 //     var element = ReactDOM.findDOWNode(this.refs.dropdown)
 //     let(element).ready(function(){
@@ -33,6 +33,7 @@ const MainView = React.createClass({
 
   componentWillReceiveProps: function(newProps){
     console.log('new props',newProps)
+
     if(newProps.currentUser.city !== this.props.currentUser.city){
       ACTIONS._fetchBandsandTrackData(newProps.currentUser.city)
     }
@@ -54,6 +55,12 @@ const MainView = React.createClass({
         <p>loadddinnn</p>
       )
     }
+
+   //  console.log();
+   //  let cards = this.props.whatever.map(function(element){
+   //
+   //    // return <CardView currentArtist={this.props.currentArtist} artistArr={this.props.artistArr} />
+   // })
     return (
       <div className="wrapper">
         <div className="hero">
@@ -89,7 +96,26 @@ const MainView = React.createClass({
           </nav>
         </div>
         <div className="row">
-          <CardView currentArtist={this.props.currentArtist} />
+          {this.props.artistArr.map(function(obj, i){
+             console.log(obj)
+             return(
+                <div className="col xs12 s12 m4 lg3">
+                   <div className="card z-depth-4">
+                     <div className="card-content black-text">
+                       <div className="card-image">
+                         <img src={obj[0].artists.items[0].images[1].url}></img>
+                       </div>
+                       <span className="card-title"></span>
+                          <h2>{obj[0].artists.items[0].name}</h2>
+                     </div>
+                     <div className="cta">
+
+
+                     </div>
+                   </div>
+                </div>
+             )
+          }) }
         </div>
       </div>
     );
@@ -102,16 +128,30 @@ const MainView = React.createClass({
 // console.log(musicShitString);
  // console.log(this.props.currentArtist)
 
- 
-
-const CardView = React.createClass({
-
-
-  render: function(){
-
-    return (
-        this.props.cardView
-    );
-  }
-});
-module.exports = MainView, CardView, cardViewConstructor
+// this.props.artistArr[0].artists.items[0].images[1].url
+// const CardView = React.createClass({
+//
+//   render: function(){
+//      console.log()
+//      return (
+//         <div className="col xs12 s12 m4 lg3">
+//            <div className="card z-depth-4">
+//              <div className="card-content black-text">
+//                <div className="card-image">
+//                  <img src={this.props.artistArr}></img>
+//                </div>
+//                <span className="card-title"></span>
+//
+//              </div>
+//              <div className="cta">
+//
+//                <iframe src={this.props.currentArtist} frameBorder="0" allowTransparency="true"></iframe>
+//                <script type='text/javascript' src='http://widget.bandsintown.com/javascripts/bit_widget.js'></script>
+//                <a href="http://www.bandsintown.com/SmallBlack" className="bit-widget-initializer bandsintown" data-artist="Small Black">Susto Tour Dates</a>
+//              </div>
+//            </div>
+//         </div>
+//      );
+//   }
+// });
+module.exports = MainView
