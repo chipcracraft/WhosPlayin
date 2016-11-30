@@ -50,7 +50,7 @@ const MainView = React.createClass({
   },
 
   render: function(){
-    if(!this.props.currentArtist){
+    if(!this.props.artistArr.catMusicShit){
       return(
         <p>loadddinnn</p>
       )
@@ -61,6 +61,7 @@ const MainView = React.createClass({
    //
    //    // return <CardView currentArtist={this.props.currentArtist} artistArr={this.props.artistArr} />
    // })
+   console.log(this.props.artistArr)
     return (
       <div className="wrapper">
         <div className="hero">
@@ -96,8 +97,8 @@ const MainView = React.createClass({
           </nav>
         </div>
         <div className="row">
-          {this.props.artistArr.map(function(obj, i){
-             console.log(obj)
+          {this.props.artistArr.spotifyQueryResults.map(function(obj, i){
+             console.log(this.props.artistArr.catMusicShit)
              return(
                 <div className="col xs12 s12 m4 lg3">
                    <div className="card z-depth-4">
@@ -109,13 +110,15 @@ const MainView = React.createClass({
                           <h2>{obj[0].artists.items[0].name}</h2>
                      </div>
                      <div className="cta">
-
+                     <iframe src={this.props.artistArr.catMusicShit} frameBorder="0" allowTransparency="true"></iframe>
+                     <script type='text/javascript' src='http://widget.bandsintown.com/javascripts/bit_widget.js'></script>
+                     <a href="http://www.bandsintown.com/susto" className="bit-widget-initializer bandsintown" data-artist="Small Black">Susto Tour Dates</a>
 
                      </div>
                    </div>
                 </div>
              )
-          }) }
+          }.bind(this)) }
         </div>
       </div>
     );

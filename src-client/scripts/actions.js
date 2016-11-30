@@ -88,8 +88,8 @@ const ACTIONS = {
             .then(function(catMusicData){
               console.log(catMusicData.spotifyQueryResults);
               console.log('all promises resolved succesfully: ', catMusicData.catMusicShit)
-              STORE.setStore('artistArr', catMusicData.spotifyQueryResults)
-              STORE.setStore('currentArtist', catMusicData.catMusicShit)
+              STORE.setStore('artistArr', catMusicData)
+            //   STORE.setStore('currentArtist', catMusicData.catMusicShit)
             })
       }
 
