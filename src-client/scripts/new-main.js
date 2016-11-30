@@ -72,7 +72,7 @@ const MainView = React.createClass({
           <nav>
             <div className="nav-wrapper">
                <form className="row change-location left" onSubmit={this._changeLocationSubmitHandler}>
-                  <input className="col-sm-6" type="text" value="Location" name="city"></input>
+                  <input className="col-sm-6" type="text" name="city"></input>
                   <button type="submit" className="col-sm-6 center location-btn btn waves-effect waves-light">Change Location</button>
                </form>
               <a href="#!" className="brand-logo center">whosplayin</a>
@@ -102,6 +102,7 @@ const MainView = React.createClass({
 // console.log(musicShitString);
  // console.log(this.props.currentArtist)
 
+ 
 
 const CardView = React.createClass({
 
@@ -109,25 +110,8 @@ const CardView = React.createClass({
   render: function(){
 
     return (
-        <div className="col xs12 s12 m4 lg3">
-          <div className="card z-depth-4">
-            <div className="card-content black-text">
-              <div className="card-image">
-                <img src="https://unsplash.it/300/300/?random"></img>
-              </div>
-              <span className="card-title">{this.props.bandname}</span>
-              <h6>{this.props.artistname}</h6>
-              <h6>{this.props.datetime}</h6>
-            </div>
-            <div className="cta">
-
-              <iframe src={this.props.currentArtist} frameBorder="0" allowTransparency="true"></iframe>
-              <script type='text/javascript' src='http://widget.bandsintown.com/javascripts/bit_widget.js'></script>
-              <a href="http://www.bandsintown.com/SmallBlack" className="bit-widget-initializer bandsintown" data-artist="Small Black">Susto Tour Dates</a>
-            </div>
-          </div>
-        </div>
+        this.props.cardView
     );
   }
 });
-module.exports = MainView, CardView
+module.exports = MainView, CardView, cardViewConstructor

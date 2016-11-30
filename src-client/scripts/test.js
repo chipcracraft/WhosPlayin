@@ -1,6 +1,7 @@
 /* I'm trying to figure out how to render playlists*/
 import $ from 'jquery'
 import Spotify from 'spotify-web-api-js'
+const cardViewConstructor = require('./new-main.js')
 
 var s = new Spotify();
 
@@ -53,6 +54,7 @@ const handleFetchArtist = function(...spotifyQueryResults){
      console.log(promiseObj);
      return fetchTopTracks(promiseObj[0].artists.items[0].id)
  })
+ 
  return $.when(...spotifyTopTrackPromisesList);
 }
 

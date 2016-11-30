@@ -12,3 +12,9 @@ const UserModel = Backbone.Model.extend({
 module.exports = {
    UserModel
 }
+
+
+
+module.exports = {
+   UserModel
+}

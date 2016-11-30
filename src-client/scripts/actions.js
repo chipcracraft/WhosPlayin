@@ -80,7 +80,6 @@ const ACTIONS = {
       },
 
       _fetchBandsandTrackData: function(cityName){
-        //  }
 
           APIModule.fetchSongKickBandsfromProxy(cityName)
             .then(APIModule.handleSongKickBandsfromProxyPromise)
