@@ -1,5 +1,7 @@
 const Backbone = require('backbone');
 const STORE = require('./store.js');
+import $ from 'jquery'
+import * as APIModule from './test.js'
 
 const UserModel = require('./model-user.js').UserModel
 
@@ -12,7 +14,7 @@ const ACTIONS = {
 
          userMod.save().then(function(serverRes){
             console.log(serverRes)
-            window.location.hash = ""
+            window.location.hash = "home"
          })
       },
 
@@ -59,12 +61,35 @@ const ACTIONS = {
          // })
       },
 
+      _changeUserLocation: function(userNewLocationObj){
+           let userNewLocationMod = new UserModel("/edit-account")
+           userNewLocationMod.set(userNewLocationObj)
+
+           userNewLocationMod.save().then(function(serverRes){
+            STORE.setStore('currentUser', serverRes)
+            window.location.hash = "home"
+         })
+      },
+
       _getUser: function(queryObj){
          const authenticateUser = new UserModel("/get-account")
          authenticateUser.fetch().then(function(serverRes){
             STORE.setStore('currentUser', serverRes)
          })
 
+      },
+
+      _fetchBandsandTrackData: function(cityName){
+        //  }
+
+          APIModule.fetchSongKickBandsfromProxy(cityName)
+            .then(APIModule.handleSongKickBandsfromProxyPromise)
+            .then(APIModule.handleFetchArtist)
+            .then(APIModule.handleFetchTopTracks)
+            .then(function(catMusicData){
+              console.log('all promises resolved succesfully: ', catMusicData)
+              STORE.setStore('currentArtist', catMusicData)
+            })
       }
 
 }

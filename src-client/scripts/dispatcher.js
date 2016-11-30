@@ -17,14 +17,17 @@ const Dispatcher = React.createClass({
         },
 
         componentWillMount: function(){
-                let self = this
-                  STORE.onChange(function(){
-                let updateState = STORE.getStoreData()
-                  self.setState(updateState)
-              })
+          ACTIONS._getUser()
+
+          let self = this
+          STORE.onChange(function(){
+            let updateState = STORE.getStoreData()
+            self.setState(updateState)
+          })
         },
 
          render: function(){
+           console.log("cu",this.state.currentUser);
           //  if(!this.state.currentArtist.length < 1){
           //    return (
           //      <p>loadinnn</p>

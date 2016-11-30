@@ -29,7 +29,8 @@ const SignUpView = React.createClass({
             lastName: evt.target.lastName.value,
             email: evt.target.email.value,
             username: evt.target.username.value,
-            password: evt.target.password.value
+            password: evt.target.password.value,
+            city: evt.target.location.value
          }
 
          ACTIONS._signUpUser(newUserObj)
@@ -38,19 +39,17 @@ const SignUpView = React.createClass({
      render: function(){
          return (
                <div className="main-container login-page">
+                <div className="title">
+                  <a href="#!">WHOSPLAYIN</a>
+                </div>
                  <div className="row">
                    <div className="column left-column col s12 m6">
                      <form className="sign-in" onSubmit={this._handleSignIn}>
                        <h1 className="center">Sign In</h1>
                        <input type="text" className="form-control" placeholder="Username" name="username"/>
                        <br></br>
-                       <input type="text" className="form-control" placeholder="Password" name="password"/>
+                       <input type="password" className="form-control" placeholder="Password" name="password"/>
                        <br></br>
-                       <div className="social-media col s12 m6">
-                         <i className="fa fa-4x fa-spotify center" aria-hidden="true">Spotify</i>
-                         <br></br>
-                         <i className="fa fa-4x fa-facebook-square center" aria-hidden="true">Facebook</i>
-                       </div>
                        <button className="center sign-btn btn waves-effect waves-light" type="submit">Sign In</button>
                        <br></br>
                      </form>
@@ -70,11 +69,16 @@ const SignUpView = React.createClass({
                        <br></br>
                        <input type="text" className="form-control" placeholder="Password" type="password" name="password" id="password" maxLength="32"/>
                        <br></br>
-                       <button className="center signUp-btn btn waves-effect waves-light" type="submit">Sign Up</button>
-                 </form>
-                 </div>
+                       <input type="text" className="form-control" placeholder="Location" name="location"/>
+                       <br></br>
+                       <div className="right-col-btn-wrapper">
+                         <button className="signUp-btn btn waves-effect waves-light" type="submit">Sign Up</button>
+                       </div>
+                       <br></br>
+                    </form>
+                  </div>
                </div>
-             </div>
+            </div>
          )
      }
 
