@@ -123,7 +123,7 @@ const CardView = React.createClass({
 
               <iframe src={this.props.currentArtist} frameBorder="0" allowTransparency="true"></iframe>
               <script type='text/javascript' src='http://widget.bandsintown.com/javascripts/bit_widget.js'></script>
-              <a href="http://www.bandsintown.com/SmallBlack" className="bit-widget-initializer bandsintown" data-artist="Small Black">Susto Tour Dates</a>
+              <a href="http://www.bandsintown.com/Susto" className="bit-widget-initializer bandsintown" data-artist="Small Black">Susto Tour Dates</a>
             </div>
           </div>
         </div>

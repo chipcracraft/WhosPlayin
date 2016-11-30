@@ -55,7 +55,7 @@ a:hover, a:visited, a:link, a:active{
 		color: #222;
 	}
 	a {
-				color: #222;
+				color: white;
 	}
 	.band-title {
 		margin-bottom: 3%;
@@ -73,17 +73,18 @@ a:hover, a:visited, a:link, a:active{
 		color: #f5f5f5;
 	}
 	input.form-control {
-		// opacity: 0.7;
-		// color: white;
-		font-size: 20px;
-		margin-left: 26%;
-		max-width: 50%;
+
+		color: white;
+		font-size: 15px;
+    margin-left: 17%;
+    max-width: 70%;
 	}
 	.login-page {
-		// color: white;
+		color: white;
 		background: #e96443; /* fallback for old browsers */
 		background: -webkit-linear-gradient(to left, #e96443 , #904e95); /* Chrome 10-25, Safari 5.1-6 */
 		background: linear-gradient(to left, #e96443 , #904e95); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		// opacity: 0.7;
 	}
 	.splash-container {
 		.splash-title {
@@ -108,10 +109,34 @@ a:hover, a:visited, a:link, a:active{
 			}
 		}
 		.splash-bottom {
-			height: 350px;
-			background-image: url("../images/2435649-0965498946-rockb.jpg") no-repeat;
+			height: 400px;
+			background-image: url("../images/2435649-0965498946-rockb.jpg");
 			background-size: cover;
+			// background: #e96443; /* fallback for old browsers */
+			// background: -webkit-linear-gradient(to left, #e96443 , #904e95); /* Chrome 10-25, Safari 5.1-6 */
+			// background: linear-gradient(to left, #e96443 , #904e95),url("../images/2435649-0965498946-rockb.jpg"); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+			z-index: -1;
 
 		}
 	}
+	.right-col-btn-wrapper button {
+		margin-left: 44%;
+	}
+	.sign-btn {
+		    margin-left: 44%;
+
+	.main-container {
+		color: white;
+	}
+	.btn  {
+		margin-left: 44%;
+		margin-bottom: 10%;
+
+		}
+
+		.title {
+			color:white;
+		}
+	}
+
 }
