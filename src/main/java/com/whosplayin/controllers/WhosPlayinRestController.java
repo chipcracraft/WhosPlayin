@@ -178,6 +178,7 @@ public class WhosPlayinRestController {
         return getEvents(metroAreaId);
     }
 
+
     // RETURNS ARRAY OF ARTISTS FOR JORDAN
     @RequestMapping(path = "/whosplayin/search/artist={artist}", method = RequestMethod.GET)
     public ResponseEntity<ArrayList> getArtistArray (@PathVariable("artist") String artist){
