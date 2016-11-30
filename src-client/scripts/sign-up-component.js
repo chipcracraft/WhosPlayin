@@ -39,6 +39,9 @@ const SignUpView = React.createClass({
      render: function(){
          return (
                <div className="main-container login-page">
+                <div className="title">
+                  <a href="#!">WHOSPLAYIN</a>
+                </div>
                  <div className="row">
                    <div className="column left-column col s12 m6">
                      <form className="sign-in" onSubmit={this._handleSignIn}>
@@ -68,11 +71,14 @@ const SignUpView = React.createClass({
                        <br></br>
                        <input type="text" className="form-control" placeholder="Location" name="location"/>
                        <br></br>
-                       <button className="center signUp-btn btn waves-effect waves-light" type="submit">Sign Up</button>
-                 </form>
-                 </div>
+                       <div className="right-col-btn-wrapper">
+                         <button className="signUp-btn btn waves-effect waves-light" type="submit">Sign Up</button>
+                       </div>
+                       <br></br>
+                    </form>
+                  </div>
                </div>
-             </div>
+            </div>
          )
      }
 
