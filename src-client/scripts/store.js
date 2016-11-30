@@ -8,7 +8,8 @@ const STORE = {
       currentSongs: [],
       currentUser: {},
       location: '',
-      currentArtist: ''
+      currentArtist: '',
+      artistArr: []
     },
 
     setStore: function(storeProp, payload){

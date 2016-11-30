@@ -36,3 +36,32 @@ _changeLocationSubmitHandler = function(){
 
    ACTIONS._changeUserLocation(userNewLocationObj)
 },
+
+
+const cardViewConstructor =  function(artistDataObj){
+   return (
+      <div className="col xs12 s12 m4 lg3">
+         <div className="card z-depth-4">
+           <div className="card-content black-text">
+             <div className="card-image">
+               <img src={artistDataObj.images[1].url}></img>
+             </div>
+             <span className="card-title"></span>
+             <h6>{artistDataObj.name}</h6>
+           </div>
+           <div className="cta">
+
+             <iframe src={this.props.currentArtist} frameBorder="0" allowTransparency="true"></iframe>
+             <script type='text/javascript' src='http://widget.bandsintown.com/javascripts/bit_widget.js'></script>
+             <a href="http://www.bandsintown.com/SmallBlack" className="bit-widget-initializer bandsintown" data-artist="Small Black">Susto Tour Dates</a>
+           </div>
+         </div>
+      </div>
+   );
+}
+
+let bigStr = ""
+for (var i = 0; i < spotifyQueryResults.length; i++){
+   bigStr += cardViewConstructor(spotifyQueryResults[i][0].artists.items[0])
+}
+STORE.setStore("cardView", bigStr)
