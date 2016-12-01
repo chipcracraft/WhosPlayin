@@ -80,15 +80,16 @@ const ACTIONS = {
       },
 
       _fetchBandsandTrackData: function(cityName){
-        //  }
 
           APIModule.fetchSongKickBandsfromProxy(cityName)
             .then(APIModule.handleSongKickBandsfromProxyPromise)
             .then(APIModule.handleFetchArtist)
             .then(APIModule.handleFetchTopTracks)
             .then(function(catMusicData){
-              console.log('all promises resolved succesfully: ', catMusicData)
-              STORE.setStore('currentArtist', catMusicData)
+              console.log(catMusicData.spotifyQueryResults);
+              console.log('all promises resolved succesfully: ', catMusicData.catMusicShit)
+              STORE.setStore('artistArr', catMusicData)
+            //   STORE.setStore('currentArtist', catMusicData.catMusicShit)
             })
       }
 
