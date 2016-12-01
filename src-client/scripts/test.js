@@ -53,10 +53,12 @@ const handleFetchArtist = function(...spotifyQueryResults){
      console.log(promiseObj);
      return fetchTopTracks(promiseObj[0].artists.items[0].id)
  })
- return $.when(...spotifyTopTrackPromisesList);
+
+ return $.when(spotifyQueryResults, ...spotifyTopTrackPromisesList)
+
 }
 
-const handleFetchTopTracks = function(...topTrackResults){
+const handleFetchTopTracks = function(spotifyQueryResults, ...topTrackResults){
   console.log(topTrackResults);
   // console.log(topTrackResults.length)
   // topTrackResults.forEach( function(){
@@ -80,7 +82,11 @@ const handleFetchTopTracks = function(...topTrackResults){
 
   let promiseObj = new $.Deferred()
   console.log(catMusicShit)
-  return promiseObj.resolve(catMusicShit)
+  return {
+   //   catMusicShit: promiseObj.resolve(catMusicShit),
+     catMusicShit: catMusicShit,
+     spotifyQueryResults: spotifyQueryResults
+  }
 
 
 }
