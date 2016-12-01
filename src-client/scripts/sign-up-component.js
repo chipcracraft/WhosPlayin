@@ -40,7 +40,7 @@ const SignUpView = React.createClass({
          return (
                <div className="main-container login-page">
                 <div className="title">
-                  <a href="#!">WHOSPLAYIN</a>
+                  <a clasName="title-home" href="#!">WHOSPLAYIN</a>
                 </div>
                  <div className="row">
                    <div className="column left-column col s12 m6">

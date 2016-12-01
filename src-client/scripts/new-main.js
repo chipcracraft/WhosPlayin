@@ -66,16 +66,6 @@ const MainView = React.createClass({
       <div className="wrapper">
         <div className="hero">
           <div className="input-field">
-
-
-
-            <select ref="dropdown" defaultValue="1">
-              <option value="" disabled> Choose your option</option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
-            </select>
-            <label>Materialize Select</label>
           </div>
           <nav>
             <div className="nav-wrapper">
@@ -90,12 +80,18 @@ const MainView = React.createClass({
                 <li><a>Hello {this.props.currentUser.firstName}</a></li>
                 <li><a href="#ok">Home</a></li>
 
-                <li><a href="#ok">Hello {this.props.currentUser.city}</a></li>
+                <li><a href="#ok">{this.props.currentUser.city}</a></li>
                 <li><a href="/#" onClick={this._logoutHandler}>Logout</a></li>
               </ul>
             </div>
           </nav>
         </div>
+        <div className="playlist-area">
+          <iframe src={this.props.artistArr.catMusicShit} width="500" height="380" frameborder="0" allowtransparency="true"></iframe>
+
+
+        </div>
+
         <div className="row">
           {this.props.artistArr.spotifyQueryResults.map(function(obj, i){
              console.log(this.props.artistArr.catMusicShit)
@@ -110,9 +106,10 @@ const MainView = React.createClass({
                           <h2>{obj[0].artists.items[0].name}</h2>
                      </div>
                      <div className="cta">
-                     <iframe src={this.props.artistArr.catMusicShit} frameBorder="0" allowTransparency="true"></iframe>
+                       {/* <iframe src="{this.props.artistArr.catMusicShit}" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+                     <iframe src={this.props.artistArr.catMusicShit} frameBorder="0" allowTransparency="true"></iframe> */}
                      <script type='text/javascript' src='http://widget.bandsintown.com/javascripts/bit_widget.js'></script>
-                     <a href="http://www.bandsintown.com/susto" className="bit-widget-initializer bandsintown" data-artist="Small Black">Susto Tour Dates</a>
+                     <a target="_blank" href={`http://www.bandsintown.com/${obj[0].artists.items[0].name}`} className="bit-widget-initializer bandsintown" data-artist="Small Black">{obj[0].artists.items[0].name} Tour Dates</a>
 
                      </div>
                    </div>
@@ -124,6 +121,9 @@ const MainView = React.createClass({
     );
   }
 });
+
+
+
 
 
 module.exports = MainView
