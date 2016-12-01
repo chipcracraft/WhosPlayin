@@ -33,7 +33,12 @@ a:hover, a:visited, a:link, a:active{
 	// color: #f5f5f5;
 }
 iframe {
-	margin-left: 10px;
+
+	margin-left: 40%;
+	margin-bottom: 2%;
+	margin-top: 2%;
+
+
 }
 #app-container {
 	flex: 1 0 auto;
@@ -144,13 +149,16 @@ iframe {
 
 		}
 
-		.title-home a {
-			color:white;
-		}
 	}
-	.change-location {
-    	margin-left: 5%;
-	}
+
+}
+
+.card {
+		max-width: 500px;
+    margin: 14px 50px;
+}
+.bandsintown {
+	margin-left: 19px;
 }
 // loading stuff!
 container {
@@ -319,4 +327,8 @@ container {
 .shadow-r {
   -webkit-animation: shadow-r-n .425s ease-in-out infinite alternate;
   animation: shadow-r-n .425s ease-in-out infinite alternate;
+}
+
+.title-home {
+	color: #f5f5f5;
 }
