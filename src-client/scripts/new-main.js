@@ -58,16 +58,6 @@ const MainView = React.createClass({
       <div className="wrapper">
         <div className="hero">
           <div className="input-field">
-
-
-
-            <select ref="dropdown" defaultValue="1">
-              <option value="" disabled> Choose your option</option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
-            </select>
-            <label>Materialize Select</label>
           </div>
           <nav>
             <div className="nav-wrapper">
@@ -82,7 +72,7 @@ const MainView = React.createClass({
                 <li><a>Hello {this.props.currentUser.firstName}</a></li>
                 <li><a href="#ok">Home</a></li>
 
-                <li><a href="#ok">Hello {this.props.currentUser.city}</a></li>
+                <li><a href="#ok">{this.props.currentUser.city}</a></li>
                 <li><a href="/#" onClick={this._logoutHandler}>Logout</a></li>
               </ul>
             </div>

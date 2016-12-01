@@ -109,12 +109,17 @@ iframe {
 			padding-top: 150px;
 			.listen-button {
 				border: 1px solid black;
-				margin-left: 41%;
-				width: 15%;
+				color: white;
+				margin-left: 39%;
+    		width: 20%;
+				margin-top: 2%;
+			}
+			.listen-button a {
+				color: white;
 			}
 		}
 		.splash-bottom {
-			height: 400px;
+			height: 500px;
 			background-image: url("../images/2435649-0965498946-rockb.jpg");
 			background-size: cover;
 			// background: #e96443; /* fallback for old browsers */
@@ -139,11 +144,13 @@ iframe {
 
 		}
 
-		.title {
+		.title-home a {
 			color:white;
 		}
 	}
-
+	.change-location {
+    	margin-left: 5%;
+	}
 }
 // loading stuff!
 container {

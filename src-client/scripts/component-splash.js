@@ -20,10 +20,10 @@ const SplashPageView = React.createClass({
       <div className="splash-container">
 
       <div className="splash-title">
-         <h2>WHOSPLAYIN</h2>
+         <h4>WHOSPLAYIN</h4>
       </div>
       <div className="splash-login" onClick={this._signUp}>
-         
+
       </div>
 
          <div className="splash-top">
