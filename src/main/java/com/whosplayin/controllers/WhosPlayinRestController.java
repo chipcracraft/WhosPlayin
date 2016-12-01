@@ -41,7 +41,7 @@ public class WhosPlayinRestController {
 
     @PostConstruct
     public void init() throws SQLException, PasswordStorage.CannotPerformOperationException {
-        h2 = Server.createWebServer().start();
+        Server.createWebServer("-webPort", "1338").start();
     // String username, String password, String firstName, String lastName
         if (users.count() == 0){
             User user = new User("teambekbek", PasswordStorage.createHash("iwantMusic2"), "Rebekah", "Whittle");
