@@ -87,7 +87,7 @@ const MainView = React.createClass({
           </nav>
         </div>
         <div className="playlist-area">
-          <iframe src={this.props.artistArr.catMusicShit} width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+          <iframe src={this.props.artistArr.catMusicShit} width="500" height="380" frameborder="0" allowtransparency="true"></iframe>
 
 
         </div>
