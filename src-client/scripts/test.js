@@ -68,6 +68,7 @@ const handleFetchTopTracks = function(spotifyQueryResults, ...topTrackResults){
 
   for (var i = 0; i < topTrackResults.length; i++){
     let artistTopTracks = topTrackResults[i]["0"].tracks["0"].id
+    if (!artistTopTracks){  return  }
     console.log(artistTopTracks);
     //   STORE.setStore('currentArtist', artistTopTracks)
     musicShit.push(artistTopTracks)
@@ -75,7 +76,6 @@ const handleFetchTopTracks = function(spotifyQueryResults, ...topTrackResults){
 
   if (musicShit.length > 0) {
     fak = musicShit.join(',');
-    console.log("waaaaaaaaaaaa", fak);
     catMusicShit = "https://embed.spotify.com/?uri=spotify:trackset:WhosPlayin:"
     catMusicShit = catMusicShit + fak
   }
