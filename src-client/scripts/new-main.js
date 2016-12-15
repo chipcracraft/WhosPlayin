@@ -39,16 +39,6 @@ const MainView = React.createClass({
     }
   },
 
-  _changeLocationSubmitHandler: function(){
-     evt.preventDefault()
-
-     let userNewLocationObj = {
-        city: evt.target.city.value,
-     }
-
-     ACTIONS._changeUserLocation(userNewLocationObj)
-  },
-
   render: function(){
     if(!this.props.artistArr.catMusicShit){
       return(
@@ -69,10 +59,6 @@ const MainView = React.createClass({
           </div>
           <nav>
             <div className="nav-wrapper">
-               <form className="row change-location left" onSubmit={this._changeLocationSubmitHandler}>
-                  <button type="submit" className="col sm6 center location-btn btn waves-effect waves-light">Change Location</button>
-                  <input className="col sm6" type="text" name="city"></input>
-               </form>
               <a href="#!" className="brand-logo center">whosplayin</a>
               <ul className="right hide-on-med-and-down">
 
@@ -87,7 +73,7 @@ const MainView = React.createClass({
           </nav>
         </div>
         <div className="playlist-area">
-          <iframe src={this.props.artistArr.catMusicShit} width="500" height="380" frameborder="0" allowtransparency="true"></iframe>
+          <iframe src={this.props.artistArr.catMusicShit} width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
 
 
         </div>

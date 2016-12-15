@@ -1,8 +1,8 @@
 package com.whosplayin.controllers;
 
 import com.whosplayin.entities.User;
-import com.whosplayin.services.BandRepo;
-import com.whosplayin.services.EventRepo;
+
+
 import com.whosplayin.services.UserRepo;
 import com.whosplayin.utilities.PasswordStorage;
 import org.h2.tools.Server;
@@ -35,19 +35,13 @@ public class WhosPlayinRestController {
 
 
     @Autowired
-    BandRepo bands;
-
-    @Autowired
-    EventRepo events;
-
-    @Autowired
     UserRepo users;
 
     Server h2;
 
     @PostConstruct
     public void init() throws SQLException, PasswordStorage.CannotPerformOperationException {
-        h2 = Server.createWebServer().start();
+        Server.createWebServer("-webPort", "1338").start();
     // String username, String password, String firstName, String lastName
         if (users.count() == 0){
             User user = new User("teambekbek", PasswordStorage.createHash("iwantMusic2"), "Rebekah", "Whittle");
@@ -173,7 +167,6 @@ public class WhosPlayinRestController {
         HashMap resultsPage = (HashMap) search.get("resultsPage");
         HashMap results = (HashMap) resultsPage.get("results");
         ArrayList event = (ArrayList) results.get("event");
-
         return new ResponseEntity<ArrayList>(event, HttpStatus.OK);
     }
 
@@ -184,6 +177,7 @@ public class WhosPlayinRestController {
         int metroAreaId = getLocation(location).getBody();
         return getEvents(metroAreaId);
     }
+
 
     // RETURNS ARRAY OF ARTISTS FOR JORDAN
     @RequestMapping(path = "/whosplayin/search/artist={artist}", method = RequestMethod.GET)
@@ -240,9 +234,8 @@ public class WhosPlayinRestController {
         return new ResponseEntity<ArrayList>(events, HttpStatus.OK);
     }
 
-//     COMBINE BOTH ARTIST METHODS TO GET ARTIST CALENDAR
-//         USE ARTISTID TO RETURN CALENDAR WITH ARTIST INSERTED
-
+        //     COMBINE BOTH ARTIST METHODS TO GET ARTIST CALENDAR
+            //   USE ARTISTID TO RETURN CALENDAR WITH ARTIST INSERTED
     @RequestMapping(path = "/whosplayin/{artist}=calendar", method = RequestMethod.GET)
     public ResponseEntity<ArrayList> artistCalendar(@PathVariable("artist") String artist){
         int artistId = getArtistId(artist).getBody();
