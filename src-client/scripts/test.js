@@ -4,7 +4,6 @@ import Spotify from 'spotify-web-api-js'
 
 var s = new Spotify();
 
-// fetch event data from bekah
 const fetchSongKickBandsfromProxy = function(userInputLocation){
   return $.ajax({
     url: `/whosplayin/${userInputLocation}`,
@@ -13,7 +12,6 @@ const fetchSongKickBandsfromProxy = function(userInputLocation){
 }
 
 // let eventsListNames = 'lil wayne'
-// input variable into spotify query
 const fetchArtist = function(artist){
   console.log(`artist list fetched`);
   return $.ajax({
@@ -25,7 +23,6 @@ const fetchArtist = function(artist){
 // const artistImg = artists.items[0].images[2]
 // fetchBackEnd.map(fetchArtists);
 
-// render top track URIs into iframe
 const fetchTopTracks = function(artistId){
   return $.ajax({
     url: `https://api.spotify.com/v1/artists/${artistId}/top-tracks?country=US`,
