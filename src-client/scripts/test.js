@@ -44,10 +44,13 @@ const handleSongKickBandsfromProxyPromise = function(res){
 
 const handleFetchArtist = function(...spotifyQueryResults){
  console.log('the spotify initial query:', spotifyQueryResults );
+
  let spotifyTopTrackPromisesList = spotifyQueryResults.filter(function(promiseObj){
      return promiseObj[0].artists.items.length > 0
- }).map(function(promiseObj){
+ })
+ .map(function(promiseObj){
      console.log(promiseObj);
+     if (!promiseObj[0].artists.items[0].id) { return }
      return fetchTopTracks(promiseObj[0].artists.items[0].id)
  })
 
@@ -57,31 +60,31 @@ const handleFetchArtist = function(...spotifyQueryResults){
 
 const handleFetchTopTracks = function(spotifyQueryResults, ...topTrackResults){
   console.log(topTrackResults);
-  // console.log(topTrackResults.length)
-  // topTrackResults.forEach( function(){
-  let musicShit = []
-  let catMusicShit = ''
-  let fak = ''
+
+  let spotifyTopTracksArray = []
+  let fullSpotifyEmbedLink = ''
+  let joinedMusicString = ''
 
   for (var i = 0; i < topTrackResults.length; i++){
     let artistTopTracks = topTrackResults[i]["0"].tracks["0"].id
     if (!artistTopTracks){  return  }
     console.log(artistTopTracks);
     //   STORE.setStore('currentArtist', artistTopTracks)
-    musicShit.push(artistTopTracks)
+    spotifyTopTracksArray.push(artistTopTracks)
   }
 
-  if (musicShit.length > 0) {
-    fak = musicShit.join(',');
-    catMusicShit = "https://embed.spotify.com/?uri=spotify:trackset:WhosPlayin:"
-    catMusicShit = catMusicShit + fak
+  if (spotifyTopTracksArray.length > 0) {
+
+    joinedMusicString = spotifyTopTracksArray.join(',');
+    fullSpotifyEmbedLink = "https://embed.spotify.com/?uri=spotify:trackset:WhosPlayin:"
+
+    fullSpotifyEmbedLink += joinedMusicString
   }
 
   let promiseObj = new $.Deferred()
-  console.log(catMusicShit)
+  console.log(fullSpotifyEmbedLink)
   return {
-   //   catMusicShit: promiseObj.resolve(catMusicShit),
-     catMusicShit: catMusicShit,
+     fullSpotifyEmbedLink: fullSpotifyEmbedLink,
      spotifyQueryResults: spotifyQueryResults
   }
 
