@@ -86,7 +86,7 @@ const MainView = React.createClass({
                    <div className="card z-depth-4">
                      <div className="card-content black-text">
                        <div className="card-image">
-                         {/*<img src={obj[0].artists.items[0].images[1].url}></img>*/}
+                         <img src={obj[0].artists.items[0].images[1].url}></img>
                        </div>
                        <span className="card-title"></span>
                           <h2>{obj[0].artists.items[0].name}</h2>
