@@ -31,7 +31,7 @@ const getLocation = navigator.geolocation.getCurrentPosition(function(position) 
 // });
 
 const fetchMetroData = function(){
-  request('http://api.songkick.com/api/3.0/search/locations.json?location=geo:' + userLocation + '&apikey=YlX4r2ab8xzzlYDB', function (error, response, body) {
+  request('http://api.songkick.com/api/3.0/search/locations.json?location=geo:' + userLocation + '&apikey=sGR8yoZTFb6XbTL7', function (error, response, body) {
     if (!error && response.statusCode == 200) {
       console.log(body)
       const userMetro = body
@@ -44,7 +44,7 @@ const fetchMetroData = function(){
 
 
 const fetchMetroConcerts = function(){
-  request('http://api.songkick.com/api/3.0/metro_areas/{metro_area_id}/calendar.json?apikey=YlX4r2ab8xzzlYDB', function (error, response, body){
+  request('http://api.songkick.com/api/3.0/metro_areas/{metro_area_id}/calendar.json?apikey=sGR8yoZTFb6XbTL7', function (error, response, body){
     if (!error && response.statusCode == 200) {
       console.log(body)
       const metroConcerts = body
